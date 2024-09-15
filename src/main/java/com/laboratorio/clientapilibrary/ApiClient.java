@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 11/09/2024
+ * @updated 15/09/2024
  */
 public interface ApiClient {
     String executeGetRequest(ApiRequest request) throws ApiClientException;
@@ -21,4 +21,8 @@ public interface ApiClient {
     Response getResponsePostRequest(ApiRequest request) throws ApiClientException;
     
     Response getResponsePutRequest(ApiRequest request) throws ApiClientException;
+    
+    String executeDeleteRequest(ApiRequest request);
+    Response getResponseDeleteRequest(ApiRequest request) throws ApiClientException;
+    ProcessedResponse getProcessedResponseDeleteRequest(ApiRequest request) throws ApiClientException;
 }

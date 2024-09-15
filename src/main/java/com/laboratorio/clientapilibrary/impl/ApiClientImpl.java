@@ -38,7 +38,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 12/09/2024
+ * @updated 15/09/2024
  */
 
 @NoArgsConstructor
@@ -155,7 +155,7 @@ public class ApiClientImpl implements ApiClient {
         return requestBuilder;
     }
     
-    public ProcessedResponse executeSimpleGetRequest(ApiRequest request) throws ApiClientException {
+    private ProcessedResponse executeSimpleGetRequest(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
         Response response = null;
         
@@ -458,5 +458,55 @@ public class ApiClientImpl implements ApiClient {
         }
         
         return this.executePutRequestWithJSONBody(request).getResponse();
+    }
+    
+    private ProcessedResponse executeSimpleDeleteRequest(ApiRequest request) throws ApiClientException {
+        Client client = ClientBuilder.newClient();
+        Response response = null;
+        
+        try {
+            WebTarget target = createTarget(client, request);
+            
+            Invocation.Builder requestBuilder = this.createInvocation(target, request);
+            
+            response = requestBuilder.delete();
+            
+            String responseStr = this.processResponse(response);
+            if (response.getStatus() != request.getOkResponse()) {
+                log.error(String.format("Respuesta del error %d: %s", response.getStatus(), responseStr));
+                String str = "Error ejecutando: " + request.getUri() + ". Se obtuvo el código de error: " + response.getStatus();
+                throw new Exception(str);
+            }
+            
+            log.debug("Se ejecutó la query: " + request.getUri());
+            log.debug("Respuesta JSON recibida: " + responseStr);
+            
+            return new ProcessedResponse(response, responseStr);
+        } catch (ApiClientException e) {
+            throw e;
+        } catch (Exception e) {
+            logException(e);
+            throw new ApiClientException(ApiClientImpl.class.getName(), e.getMessage());
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+            client.close();
+        }
+    }
+
+    @Override
+    public String executeDeleteRequest(ApiRequest request) {
+        return this.executeSimpleDeleteRequest(request).getResponseDetail();
+    }
+
+    @Override
+    public Response getResponseDeleteRequest(ApiRequest request) throws ApiClientException {
+        return this.executeSimpleDeleteRequest(request).getResponse();
+    }
+
+    @Override
+    public ProcessedResponse getProcessedResponseDeleteRequest(ApiRequest request) throws ApiClientException {
+        return this.executeSimpleDeleteRequest(request);
     }
 }

@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 09/09/2024
+ * @updated 15/09/2024
  */
 public class ApiClientTest {
     private static ApiClient client;
@@ -105,5 +105,15 @@ public class ApiClientTest {
         assertThrows(ApiClientException.class, () -> {
             client.getResponsePutRequest(request);
         });
+    }
+    
+    @Test
+    public void executeDeleteRequest() {
+        ApiRequest request = new ApiRequest("https://fakestoreapi.com/products/6", 200);
+        request.addApiHeader("Content-Type", "application/json");
+        
+        Response response = client.getResponseDeleteRequest(request);
+        
+        assertEquals(200, response.getStatus());
     }
 }
