@@ -38,7 +38,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 15/09/2024
+ * @updated 16/09/2024
  */
 
 @NoArgsConstructor
@@ -61,6 +61,7 @@ public class ApiClientImpl implements ApiClient {
     }
     
     // Obtiene las cookies del website
+    @Override
     public List<String> getWebsiteCookies(String uri) {
         ResteasyClient client = new ResteasyClientBuilderImpl()
                 .enableCookieManagement()
