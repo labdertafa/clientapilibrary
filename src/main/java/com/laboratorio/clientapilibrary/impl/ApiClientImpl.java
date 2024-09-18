@@ -14,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -22,6 +23,7 @@ import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
@@ -38,7 +40,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 16/09/2024
+ * @updated 18/09/2024
  */
 
 @NoArgsConstructor
@@ -63,6 +65,14 @@ public class ApiClientImpl implements ApiClient {
     // Obtiene las cookies del website
     @Override
     public List<String> getWebsiteCookies(String uri) {
+        // Cargar las cookies almacenadas si existen
+        if (this.cookiesFilePath != null) {
+            Map<String, NewCookie> existingCookies = CookieManager.loadCookies(this.cookiesFilePath);
+            if (!existingCookies.isEmpty()) {
+                return CookieManager.extractCookiesInformation(existingCookies);
+            }
+        }
+        
         ResteasyClient client = new ResteasyClientBuilderImpl()
                 .enableCookieManagement()
                 .build();

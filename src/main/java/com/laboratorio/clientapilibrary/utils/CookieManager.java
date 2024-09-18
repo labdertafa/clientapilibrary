@@ -131,7 +131,7 @@ public class CookieManager {
 
             log.info("Las cookies de Truth Social de cargaron exitosamente.");
         } catch (Exception e) {
-            log.error("Problemas al recuperar las cookies de Truth Social. Se cargará un conjunto vacío.");
+            log.error("Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.");
             logException(e);
         }
 
