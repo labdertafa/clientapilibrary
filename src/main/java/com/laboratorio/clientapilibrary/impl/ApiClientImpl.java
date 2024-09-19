@@ -1,5 +1,7 @@
 package com.laboratorio.clientapilibrary.impl;
 
+import com.aayushatharva.brotli4j.Brotli4jLoader;
+import com.aayushatharva.brotli4j.decoder.BrotliInputStream;
 import com.laboratorio.clientapilibrary.ApiClient;
 import com.laboratorio.clientapilibrary.exceptions.ApiClientException;
 import com.laboratorio.clientapilibrary.model.ApiElement;
@@ -8,11 +10,11 @@ import com.laboratorio.clientapilibrary.model.ApiRequest;
 import com.laboratorio.clientapilibrary.model.ApiValueType;
 import com.laboratorio.clientapilibrary.model.ProcessedResponse;
 import com.laboratorio.clientapilibrary.utils.CookieManager;
-import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
@@ -25,7 +27,6 @@ import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
-import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
@@ -40,15 +41,19 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 18/09/2024
+ * @updated 19/09/2024
  */
 
-@NoArgsConstructor
 public class ApiClientImpl implements ApiClient {
     private static final Logger log = LogManager.getLogger(ApiClientImpl.class);
     private String cookiesFilePath;
 
+    public ApiClientImpl() {
+        Brotli4jLoader.ensureAvailability();
+    }
+
     public ApiClientImpl(String cookiesFilePath) {
+        Brotli4jLoader.ensureAvailability();
         this.cookiesFilePath = cookiesFilePath;
     }
     
@@ -99,35 +104,32 @@ public class ApiClientImpl implements ApiClient {
     private String processResponse(Response response) {
         try {
             // Obtén el InputStream de la entidad y descomprímelo si es necesario
-            InputStream inputStream = response.readEntity(InputStream.class);
             String contentEncoding = response.getHeaderString("Content-Encoding");
-            if (contentEncoding == null) {
-                return response.readEntity(String.class);
+            
+            // Leer el cuerpo de la respuesta como bytes
+            byte[] responseBytes = response.readEntity(byte[].class);
+            
+            // Si la respuesta está codificada como Brotli (br)
+            if ("br".equalsIgnoreCase(contentEncoding)) {
+                InputStream brotliInputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes));
+                byte[] decompressedBytes = brotliInputStream.readAllBytes();
+                return new String(decompressedBytes, StandardCharsets.UTF_8);
+            } else {
+                if ("gzip".equalsIgnoreCase(contentEncoding)) {
+                    InputStream gzipInputStream = new GZIPInputStream(new ByteArrayInputStream(responseBytes));
+                    byte[] decompressedBytes = gzipInputStream.readAllBytes();
+                    return new String(decompressedBytes, StandardCharsets.UTF_8);
+                } else {
+                    return new String(responseBytes, StandardCharsets.UTF_8);
+                }
             }
-            
-            // Verifica si la respuesta está comprimida
-            if ("gzip".equalsIgnoreCase(contentEncoding)) {
-                inputStream = new GZIPInputStream(inputStream);
-            }
-            
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder responseStrBuilder = new StringBuilder();
-            
-            String line;
-            while ((line = reader.readLine()) != null) {
-                responseStrBuilder.append(line);
-            }
-
-            reader.close();
-            
+        } catch (Exception e) {
+            throw new ApiClientException(ApiClientImpl.class.getName(), "Error procesando la respuesta recibida");
+        } finally {
             // Almacena las cookies de la respuesta
             if (this.cookiesFilePath != null) {
                 CookieManager.saveCookies(this.cookiesFilePath, response.getCookies());
             }
-            
-            return responseStrBuilder.toString();
-        } catch (Exception e) {
-            throw new ApiClientException(ApiClientImpl.class.getName(), "Error procesando la respuesta recibida");
         }
     }
     
@@ -375,6 +377,19 @@ public class ApiClientImpl implements ApiClient {
         }
         
         return this.executePostRequestWithJSONBody(request).getResponse();
+    }
+    
+    @Override
+    public ProcessedResponse getProcessedResponsePostRequest(ApiRequest request) throws ApiClientException {
+        if (request.isFormData()) {
+            return this.executePostRequesFormData(request);
+        } else {
+            if (request.getBinaryFile() != null)  {
+                return this.executePostRequestWithBinaryBody(request);
+            }
+        }
+        
+        return this.executePostRequestWithJSONBody(request);
     }
     
     // Ejecuta un PUT que tiene un BODY con un JSON

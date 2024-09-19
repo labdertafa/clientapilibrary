@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 1.0
  * @created 01/09/2024
- * @updated 06/09/2024
+ * @updated 18/09/2024
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -92,8 +92,10 @@ public class CookieManager {
             FileOutputStream fos = new FileOutputStream(filePath);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(serializableCookies);
+            oos.close();
+            fos.close();
 
-            log.info("Las cookies de Truth Social se guardaron exitosamente.");
+            log.debug("Las cookies del website se guardaron exitosamente.");
         } catch (IOException e) {
             log.error("Error almacenando las cookies de Truth Social");
             logException(e);
@@ -109,6 +111,10 @@ public class CookieManager {
             ObjectInputStream ois = new ObjectInputStream(fis);
 
             Map<String, SerializableCookie> serializableCookies = (Map<String, SerializableCookie>) ois.readObject();
+            
+            ois.close();
+            fis.close();
+            
             for (Map.Entry<String, SerializableCookie> entry : serializableCookies.entrySet()) {
                 cookies.put(entry.getKey(), toNewCookie(entry.getValue()));
             }
@@ -129,7 +135,7 @@ public class CookieManager {
                 return false;
             });
 
-            log.info("Las cookies de Truth Social de cargaron exitosamente.");
+            log.debug("Las cookies de Truth Social de cargaron exitosamente.");
         } catch (Exception e) {
             log.error("Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.");
             logException(e);

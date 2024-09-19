@@ -4,6 +4,7 @@ import com.laboratorio.clientapilibrary.ApiClient;
 import com.laboratorio.clientapilibrary.exceptions.ApiClientException;
 import com.laboratorio.clientapilibrary.impl.ApiClientImpl;
 import com.laboratorio.clientapilibrary.model.ApiRequest;
+import java.util.List;
 import javax.ws.rs.core.Response;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,6 +43,27 @@ public class ApiClientTest {
         assertThrows(ApiClientException.class, () -> {
             client.executeGetRequest(request);
         });
+    }
+    
+    @Test
+    public void executeGetRequestBrotliEncoded() {
+        String uri = "https://www.minds.com/api/v1/channel/disobedientcitizen";
+        ApiRequest request = new ApiRequest(uri, 200);
+        
+        List<String> cookiesList = client.getWebsiteCookies("https://www.minds.com/labrafa/");
+        for (String cookie : cookiesList) {
+            request.addApiCookie(cookie);
+        }
+        
+        request.addApiHeader("Accept", "*/*");
+        request.addApiHeader("Accept-Encoding", "gzip, deflate, br");
+        request.addApiHeader("Connection", "keep-alive");
+        request.addApiHeader("X-Version", "1452425022");
+        request.addApiHeader("X-Xsrf-Token", "bc062ae65ee5518d1626ed77b9d51b181a5f0cb970bdda26ee78eba8c9015f3773cb80683459d23b65afe15a954a36696377f14edccf6c2132c204a473b7085d");
+        
+        String response = client.executeGetRequest(request);
+        
+        assertTrue(response.contains("disobedientcitizen"));
     }
     
     @Test

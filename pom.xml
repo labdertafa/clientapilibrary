@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.laboratorio</groupId>
     <artifactId>clientapilibrary</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
     <name>Client-Api-Library</name>
     <description>Libreria client api usando JAX-RS</description>
@@ -92,6 +92,14 @@
             <artifactId>metadata-extractor</artifactId>
             <version>2.19.0</version>
         </dependency>
+        
+        <!-- Biblioteca para decodifificar una respuesta con codificación Brotli -->
+        <dependency>
+            <groupId>com.aayushatharva.brotli4j</groupId>
+            <artifactId>brotli4j</artifactId>
+            <version>1.17.0</version>
+        </dependency>
+
         
         <dependency>
             <groupId>org.junit.jupiter</groupId>
