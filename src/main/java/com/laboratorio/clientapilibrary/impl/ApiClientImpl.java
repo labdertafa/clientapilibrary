@@ -41,7 +41,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 19/09/2024
+ * @updated 20/09/2024
  */
 
 public class ApiClientImpl implements ApiClient {
@@ -472,6 +472,19 @@ public class ApiClientImpl implements ApiClient {
             client.close();
         }
     }
+    
+    @Override
+    public String executePutRequest(ApiRequest request) throws ApiClientException {
+        if (request.isFormData()) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } else {
+            if (request.getBinaryFile() != null) {
+                return this.executePutRequestWithBinaryBody(request).getResponseDetail();
+            }
+        }
+        
+        return this.executePutRequestWithJSONBody(request).getResponseDetail();
+    }
 
     @Override
     public Response getResponsePutRequest(ApiRequest request) throws ApiClientException {
@@ -484,6 +497,19 @@ public class ApiClientImpl implements ApiClient {
         }
         
         return this.executePutRequestWithJSONBody(request).getResponse();
+    }
+    
+    @Override
+    public ProcessedResponse getProcessedResponsePutRequest(ApiRequest request) throws ApiClientException {
+        if (request.isFormData()) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        } else {
+            if (request.getBinaryFile() != null)  {
+                return this.executePutRequestWithBinaryBody(request);
+            }
+        }
+        
+        return this.executePutRequestWithJSONBody(request);
     }
     
     private ProcessedResponse executeSimpleDeleteRequest(ApiRequest request) throws ApiClientException {

@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 19/09/2024
+ * @updated 20/09/2024
  */
 public interface ApiClient {
     List<String> getWebsiteCookies(String uri);
@@ -24,7 +24,9 @@ public interface ApiClient {
     Response getResponsePostRequest(ApiRequest request) throws ApiClientException;
     ProcessedResponse getProcessedResponsePostRequest(ApiRequest request) throws ApiClientException;
     
+    String executePutRequest(ApiRequest request) throws ApiClientException;
     Response getResponsePutRequest(ApiRequest request) throws ApiClientException;
+    ProcessedResponse getProcessedResponsePutRequest(ApiRequest request) throws ApiClientException;
     
     String executeDeleteRequest(ApiRequest request);
     Response getResponseDeleteRequest(ApiRequest request) throws ApiClientException;
