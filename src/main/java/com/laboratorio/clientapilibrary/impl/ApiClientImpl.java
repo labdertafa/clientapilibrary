@@ -41,7 +41,7 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 20/09/2024
+ * @updated 22/09/2024
  */
 
 public class ApiClientImpl implements ApiClient {
@@ -170,6 +170,7 @@ public class ApiClientImpl implements ApiClient {
     
     private ProcessedResponse executeSimpleGetRequest(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -221,6 +222,7 @@ public class ApiClientImpl implements ApiClient {
     // Ejecuta un POST que tiene un BODY con un JSON
     private ProcessedResponse executePostRequestWithJSONBody(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -262,6 +264,7 @@ public class ApiClientImpl implements ApiClient {
     // Ejecuta un POST que tiene un BODY con un fichero binario
     private ProcessedResponse executePostRequestWithBinaryBody(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -302,6 +305,7 @@ public class ApiClientImpl implements ApiClient {
     // Ejecuta un POST con una FORMDATA
     private ProcessedResponse executePostRequesFormData(ApiRequest request) throws ApiClientException {
         ResteasyClient client = (ResteasyClient)ResteasyClientBuilder.newBuilder().build();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -395,6 +399,7 @@ public class ApiClientImpl implements ApiClient {
     // Ejecuta un PUT que tiene un BODY con un JSON
     private ProcessedResponse executePutRequestWithJSONBody(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -436,6 +441,7 @@ public class ApiClientImpl implements ApiClient {
     // Ejecuta un PUT que tiene un BODY con un fichero binario
     private ProcessedResponse executePutRequestWithBinaryBody(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
@@ -514,6 +520,7 @@ public class ApiClientImpl implements ApiClient {
     
     private ProcessedResponse executeSimpleDeleteRequest(ApiRequest request) throws ApiClientException {
         Client client = ClientBuilder.newClient();
+        client.register(ContentTypeCheckerFilter.class);
         Response response = null;
         
         try {
