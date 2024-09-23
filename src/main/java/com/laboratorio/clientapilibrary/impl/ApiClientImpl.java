@@ -10,13 +10,23 @@ import com.laboratorio.clientapilibrary.model.ApiRequest;
 import com.laboratorio.clientapilibrary.model.ApiValueType;
 import com.laboratorio.clientapilibrary.model.ProcessedResponse;
 import com.laboratorio.clientapilibrary.utils.CookieManager;
+import com.laboratorio.clientapilibrary.utils.ImageMetadata;
+import com.laboratorio.clientapilibrary.utils.PostUtils;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -41,11 +51,11 @@ import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 22/09/2024
+ * @updated 23/09/2024
  */
-
 public class ApiClientImpl implements ApiClient {
     private static final Logger log = LogManager.getLogger(ApiClientImpl.class);
+    private final String LINE_FEED = "\r\n";
     private String cookiesFilePath;
 
     public ApiClientImpl() {
@@ -101,14 +111,8 @@ public class ApiClientImpl implements ApiClient {
     }
     
     // Procesar la respuesta HTTP
-    private String processResponse(Response response) {
+    private String processResponse(String contentEncoding, byte[] responseBytes) {
         try {
-            // Obtén el InputStream de la entidad y descomprímelo si es necesario
-            String contentEncoding = response.getHeaderString("Content-Encoding");
-            
-            // Leer el cuerpo de la respuesta como bytes
-            byte[] responseBytes = response.readEntity(byte[].class);
-            
             // Si la respuesta está codificada como Brotli (br)
             if ("br".equalsIgnoreCase(contentEncoding)) {
                 InputStream brotliInputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes));
@@ -125,12 +129,22 @@ public class ApiClientImpl implements ApiClient {
             }
         } catch (Exception e) {
             throw new ApiClientException(ApiClientImpl.class.getName(), "Error procesando la respuesta recibida");
-        } finally {
-            // Almacena las cookies de la respuesta
-            if (this.cookiesFilePath != null) {
-                CookieManager.saveCookies(this.cookiesFilePath, response.getCookies());
-            }
         }
+    }
+    
+    // Procesar la respuesta HTTP
+    private String processResponse(Response response) {
+        String contentEncoding = response.getHeaderString("Content-Encoding");
+        // Leer el cuerpo de la respuesta como bytes
+        byte[] responseBytes = response.readEntity(byte[].class);
+        
+        String responseStr = this.processResponse(contentEncoding, responseBytes);
+        // Almacena las cookies de la respuesta si es necesario
+         if (this.cookiesFilePath != null) {
+             CookieManager.saveCookies(this.cookiesFilePath, response.getCookies());
+         }
+        
+         return responseStr;
     }
     
     private WebTarget createTarget(Client client, ApiRequest request) {
@@ -317,6 +331,7 @@ public class ApiClientImpl implements ApiClient {
                     if (element.getValueType() == ApiValueType.FILE) {
                         File imageFile = new File(element.getValue());
                         InputStream fileStream = new FileInputStream(imageFile);
+                        log.debug(String.format("Agregando el archivo [%s]: [%s]", element.getName(), imageFile.getName()));
                         formDataOutput.addFormData(element.getName(), fileStream, MediaType.APPLICATION_OCTET_STREAM_TYPE, imageFile.getName());
                     } else {
                         if (element.getValueType() == ApiValueType.JSON) {
@@ -327,7 +342,7 @@ public class ApiClientImpl implements ApiClient {
                     }
                 }
             }
-
+            
             Invocation.Builder requestBuilder = this.createInvocation(target, request);
             
             response = requestBuilder
@@ -394,6 +409,144 @@ public class ApiClientImpl implements ApiClient {
         }
         
         return this.executePostRequestWithJSONBody(request);
+    }
+    
+    private String getFormdataElementHeader(String boundary, ApiElement element) {
+        StringBuilder builder = new StringBuilder();
+        
+        if (element.getValueType() == ApiValueType.FILE) {
+            ImageMetadata metadata = PostUtils.extractImageMetadata(element.getValue());
+            File imageFile = new File(element.getValue());
+            builder.append("--").append(boundary).append(LINE_FEED);
+            builder.append("Content-Disposition: form-data; name=\"");
+            builder.append(element.getName()).append("\"; filename=\"").append(imageFile.getName()).append("\"").append(LINE_FEED);
+            builder.append("Content-Type: ").append(metadata.getMimeType()).append(LINE_FEED);
+            builder.append(LINE_FEED);
+        } else {
+            builder.append("--").append(boundary).append(LINE_FEED);
+            builder.append("Content-Disposition: form-data; name=\"").append(element.getName()).append("\"").append(LINE_FEED);
+            builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
+            builder.append(LINE_FEED);
+        }
+        
+        log.debug("Se agregó un elemento al Formdata: " + builder.toString());
+        
+        return builder.toString();
+    }
+    
+    private String getQueryParams(ApiRequest request) {
+        StringBuilder queryParam = null;
+        for (ApiElement element : request.getElements()) {
+            if (element.getType() == ApiElementType.PATHPARAM) {
+                if (queryParam == null) {
+                    queryParam = new StringBuilder("?");
+                }
+                queryParam.append(element.getName()).append("=");
+                queryParam.append(URLEncoder.encode(element.getValue(), StandardCharsets.UTF_8));
+            }
+        }
+        
+        if (queryParam == null) {
+            return "";
+        }
+        
+        return queryParam.toString();
+    }
+        
+    private byte[] readInputStreamAsBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            byteArrayOutputStream.write(buffer, 0, bytesRead);
+        }
+        return byteArrayOutputStream.toByteArray();
+    }
+    
+    @Override
+    public String executePostMultipartForm(ApiRequest request) throws ApiClientException {
+        // Generar un boundary único
+        String boundary = "----WebKitFormBoundary" + UUID.randomUUID().toString();
+        String contentType = "multipart/form-data; boundary=" + boundary;
+        
+        try {
+            if (!request.isFormData()) {
+                throw new ApiClientException(ApiClientImpl.class.getName(), "La solicitud no es un FormData");
+            }
+            
+            // Se agregan los QueryParams
+            String queryParam = this.getQueryParams(request);
+            
+            URL url = new URL(request.getUri() + queryParam);
+            HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+            httpConn.setUseCaches(false);
+            httpConn.setDoOutput(true); // habilita salida
+            httpConn.setDoInput(true);  // habilita entrada
+            httpConn.setRequestMethod("POST");
+            
+            httpConn.setRequestProperty("Content-Type", contentType);
+            for (ApiElement element : request.getElements()) {
+                if (element.getType() == ApiElementType.HEADER) {
+                    httpConn.setRequestProperty(element.getName(), element.getValue());
+                }
+            }
+            
+            OutputStream outputStream = httpConn.getOutputStream();
+            PrintWriter writer = new PrintWriter(outputStream, true, StandardCharsets.UTF_8);
+
+            // Se envía los elementos del formulario
+            for (ApiElement element : request.getElements()) {
+                if (element.getType() == ApiElementType.FORMDATA) {
+                    String elementHeader = this.getFormdataElementHeader(boundary, element);
+                    writer.append(elementHeader);
+                    
+                    // Se agrega el valor del elemento
+                    if (element.getValueType() == ApiValueType.FILE) {
+                        writer.flush();
+                        File imageFile = new File(element.getValue());
+                        FileInputStream inputStream = new FileInputStream(imageFile);
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+                        while ((bytesRead = inputStream.read(buffer)) != -1) {
+                            outputStream.write(buffer, 0, bytesRead);
+                        }
+                        outputStream.flush();
+                    } else {
+                        writer.append(element.getValue()).append(LINE_FEED);
+                        writer.flush();
+                    }
+                }
+            }
+
+            // Terminar la solicitud multipart
+            writer.append(LINE_FEED).append("--" + boundary + "--").append(LINE_FEED);
+            writer.flush();
+            
+            // Obtener la respuesta del servidor
+            int responseCode = httpConn.getResponseCode();
+            if (responseCode != request.getOkResponse()) {
+                log.error(String.format("Respuesta del error %d:", responseCode));
+                String str = "Error ejecutando: " + request.getUri();
+                throw new Exception(str);
+            }
+            
+            log.debug("Se ejecutó la query: " + request.getUri());
+            log.debug("Response Code: " + responseCode);
+            // Obtener el Content-Encoding
+            String contentEncoding = httpConn.getHeaderField("Content-Encoding");
+            
+            InputStream inputStream2 = httpConn.getInputStream();
+            byte[] responseBytes = readInputStreamAsBytes(inputStream2);
+            
+            String responseStr = this.processResponse(contentEncoding, responseBytes);
+            
+            log.debug("Respuesta JSON recibida: " + responseStr);
+            
+            return responseStr;
+        } catch (Exception e) {
+            logException(e);
+            throw new ApiClientException(ApiClientImpl.class.getName(), e.getMessage());
+        }
     }
     
     // Ejecuta un PUT que tiene un BODY con un JSON
