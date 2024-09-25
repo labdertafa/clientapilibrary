@@ -1,18 +1,5 @@
-2024-09-23 at 11:52:25 CEST INFO  com.laboratorio.clientapilibrary.impl.ApiClientImpl - Response Code: 200
-2024-09-23 at 11:52:25 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Se ejecutó la query: https://www.minds.com/api/v1/media
-2024-09-23 at 11:52:25 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta JSON recibida: {"status":"success","guid":"1684890270245589004","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1684890270245589004\/xlarge.jpg"}
-2024-09-23 at 11:52:25 CEST INFO  com.laboratorio.apiclient.ApiClientTest - Respuesta: {"status":"success","guid":"1684890270245589004","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1684890270245589004\/xlarge.jpg"}
-2024-09-23 at 13:34:36 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Se agregó un elemento al Formdata: ------WebKitFormBoundaryf51b89f8-f984-499a-96dd-97660cfac508
-Content-Disposition: form-data; name="file"; filename="Monza_1955.jpg"
-Content-Type: image/jpeg
-
-
-2024-09-23 at 13:34:38 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Se ejecutó la query: https://www.minds.com/api/v1/media
-2024-09-23 at 13:34:38 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Response Code: 200
-2024-09-23 at 13:34:38 CEST DEBUG com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta JSON recibida: {"status":"success","guid":"1684915994566332430","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1684915994566332430\/xlarge.jpg"}
-2024-09-23 at 13:34:38 CEST INFO  com.laboratorio.apiclient.ApiClientTest - Respuesta: {"status":"success","guid":"1684915994566332430","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1684915994566332430\/xlarge.jpg"}
-2024-09-23 at 13:36:11 CEST INFO  com.laboratorio.apiclient.ApiClientTest - Respuesta: {"status":"success","guid":"1684916386356269075","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1684916386356269075\/xlarge.jpg"}
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
+2024-09-25 at 08:26:53 CEST INFO  com.laboratorio.apiclient.ApiClientTest - Respuesta: {"status":"success","guid":"1685563322205736977","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1685563322205736977\/xlarge.jpg"}
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -23,12 +10,12 @@ Content-Type: image/jpeg
 </body>
 </html>
 
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: {"url":"/s/uinf/3423423labrafa/fasdsf not found"}
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:11 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:12 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: {"url":"/s/uinf/3423423labrafa/fasdsf not found"}
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -39,6 +26,37 @@ Content-Type: image/jpeg
 </body>
 </html>
 
-2024-09-23 at 13:36:12 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:12 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
-2024-09-23 at 13:36:13 CEST WARN  org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl - RESTEASY002155: Provider class org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter is already registered.  2nd registration is being ignored.
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:53 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
+2024-09-25 at 08:26:55 CEST WARN  org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl - RESTEASY002155: Provider class org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter is already registered.  2nd registration is being ignored.
+2024-09-25 at 08:27:46 CEST INFO  com.laboratorio.apiclient.ApiClientTest - Respuesta: {"status":"success","guid":"1685563547024625676","location":"\/gluster\/data\/elgg\/2024\/08\/30\/1676194796068147207\/image\/0\/1685563547024625676\/xlarge.jpg"}
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot PUT /products</pre>
+</body>
+</html>
+
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: {"url":"/s/uinf/3423423labrafa/fasdsf not found"}
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:47 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Respuesta del error 404: <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot POST /products/1</pre>
+</body>
+</html>
+
+2024-09-25 at 08:27:47 CEST ERROR com.laboratorio.clientapilibrary.impl.ApiClientImpl - Error: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:47 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.impl.ApiClientImpl: Error ejecutando: https://fakestoreapi.com/products/1. Se obtuvo el código de error: 404
+2024-09-25 at 08:27:48 CEST WARN  org.jboss.resteasy.core.providerfactory.ResteasyProviderFactoryImpl - RESTEASY002155: Provider class org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataWriter is already registered.  2nd registration is being ignored.
