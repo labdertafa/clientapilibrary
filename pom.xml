@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.laboratorio</groupId>
     <artifactId>clientapilibrary</artifactId>
-    <version>1.0.13</version>
+    <version>1.0.14</version>
     <packaging>jar</packaging>
     <name>Client-Api-Library</name>
     <description>Libreria client api usando JAX-RS</description>
@@ -100,6 +100,11 @@
             <version>1.17.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
         
         <dependency>
             <groupId>org.junit.jupiter</groupId>
