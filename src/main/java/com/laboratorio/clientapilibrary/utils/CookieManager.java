@@ -1,5 +1,9 @@
 package com.laboratorio.clientapilibrary.utils;
 
+import com.laboratorio.clientapilibrary.ApiClient;
+import com.laboratorio.clientapilibrary.model.ApiMethodType;
+import com.laboratorio.clientapilibrary.model.ApiRequest;
+import com.laboratorio.clientapilibrary.model.ApiResponse;
 import com.laboratorio.clientapilibrary.model.SerializableCookie;
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,25 +11,22 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.NewCookie;
+import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 2.0
  * @created 01/09/2024
- * @updated 18/09/2024
+ * @updated 04/10/2024
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -36,51 +37,57 @@ public class CookieManager {
             log.error("Causa: " + e.getCause().getMessage());
         }
     }
+    
+    public static List<SerializableCookie> parseCookies(List<String> cookiesHeader) {
+        List<SerializableCookie> cookies = new ArrayList<>();
 
-    // Convierte una NewCookie a SerializableCookie
-    private static SerializableCookie toSerializableCookie(NewCookie newCookie) {
-        ZonedDateTime expiryUTC = newCookie.getExpiry() == null ? null
-                : ZonedDateTime.ofInstant(newCookie.getExpiry().toInstant(), ZoneId.of("UTC"));
+        for (String cookieHeader : cookiesHeader) {
+            String[] cookieParts = cookieHeader.split(";");
 
-        return new SerializableCookie(
-                newCookie.getName(),
-                newCookie.getValue(),
-                newCookie.getDomain(),
-                newCookie.getVersion(),
-                newCookie.getPath(),
-                newCookie.getComment(),
-                expiryUTC);
-    }
+            SerializableCookie cookie = new SerializableCookie();
+            for (int i = 0; i < cookieParts.length; i++) {
+                String part = cookieParts[i].trim();
 
-    // Convierte un SerializableCookie a NewCookie
-    private static NewCookie toNewCookie(SerializableCookie serializableCookie) {
-        int segundosRestantes = 0;
-        
-        if (serializableCookie.getExpiry() != null) {
-            ZonedDateTime now = ZonedDateTime.now(ZoneId.of("UTC"));
-            Instant nowInstant = now.toInstant();
-            Instant metaInstant = serializableCookie.getExpiry().toInstant();
-            Duration duration = Duration.between(nowInstant, metaInstant);
-            segundosRestantes = (int) duration.getSeconds();
+                // El primer par nombre=valor contiene el nombre de la cookie
+                if (i == 0) {
+                    String[] nameValue = part.split("=", 2);
+                    cookie.setName(nameValue[0]);
+                    cookie.setValue(nameValue.length > 1 ? nameValue[1] : "");
+                } else {
+                    String[] attribute = part.split("=", 2);
+                    String attributeName = attribute[0].trim().toLowerCase();
+                    String attributeValue = attribute.length > 1 ? attribute[1].trim() : "";
+
+                    switch (attributeName) {
+                        case "domain" -> cookie.setDomain(attributeValue);
+                        case "path" -> cookie.setPath(attributeValue);
+                        case "expires" -> {
+                            try {
+                                DateTimeFormatter dateFormat = DateTimeFormatter.RFC_1123_DATE_TIME;
+                                cookie.setExpiry(ZonedDateTime.parse(attributeValue, dateFormat));
+                            } catch (Exception e) {
+                                log.warn("Error al analizar la fecha de expiración de la cookie: " + e.getMessage());
+                            }
+                        }
+                        case "version" -> cookie.setVersion(Integer.parseInt(attributeValue));
+                        case "comment" -> cookie.setComment(attributeValue);
+                    }
+                }
+            }
+
+            cookies.add(cookie);
         }
 
-        return new NewCookie(
-                serializableCookie.getName(),
-                serializableCookie.getValue(),
-                serializableCookie.getPath(),
-                serializableCookie.getDomain(),
-                serializableCookie.getVersion(),
-                serializableCookie.getComment(),
-                segundosRestantes,
-                false);
+        return cookies;
     }
 
     // Función para guardar las cookies en un archivo
-    public static void saveCookies(String filePath, Map<String, NewCookie> cookies) {
+    public static void saveCookies(String filePath, List<String> cookiesHeader) {
         try {
+            List<SerializableCookie> cookies = parseCookies(cookiesHeader);
             Map<String, SerializableCookie> serializableCookies = new HashMap<>();
-            for (Map.Entry<String, NewCookie> entry : cookies.entrySet()) {
-                serializableCookies.put(entry.getKey(), toSerializableCookie(entry.getValue()));
+            for (SerializableCookie cookie : cookies) {
+                serializableCookies.put(cookie.getName(), cookie);
             }
 
             // Se borra el fichero si existe
@@ -103,8 +110,8 @@ public class CookieManager {
     }
 
     // Función para recuperar cookies guardadas y filtrar las que no estén expiradas
-    public static Map<String, NewCookie> loadCookies(String filePath) {
-        Map<String, NewCookie> cookies = new HashMap<>();
+    public static List<SerializableCookie> loadCookies(String filePath) {
+        List<SerializableCookie> cookies = new ArrayList<>();
 
         try {
             FileInputStream fis = new FileInputStream(filePath);
@@ -116,44 +123,52 @@ public class CookieManager {
             fis.close();
             
             for (Map.Entry<String, SerializableCookie> entry : serializableCookies.entrySet()) {
-                cookies.put(entry.getKey(), toNewCookie(entry.getValue()));
+                cookies.add(entry.getValue());
             }
             
-            // Filtra cookies expiradas considerando la zona horaria local
-            cookies.entrySet().removeIf(entry -> {
-                NewCookie cookie = entry.getValue();
-                Date expiry = cookie.getExpiry();
-
-                if (expiry != null) {
-                    // Convierte la fecha de expiración a la zona horaria local
-                    ZonedDateTime expiryInLocalZone = ZonedDateTime.ofInstant(expiry.toInstant(), ZoneId.systemDefault());
-
-                    // Compara con la fecha y hora actual
-                    return expiryInLocalZone.toInstant().isBefore(ZonedDateTime.now().toInstant());
-                }
-
-                return false;
-            });
-
             log.debug("Las cookies de Truth Social de cargaron exitosamente.");
         } catch (Exception e) {
             log.error("Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.");
             logException(e);
         }
 
-        return cookies;
+        // Filtra cookies expiradas considerando la zona horaria local
+        return cookies.stream()
+                .filter(c -> c.getExpiry().isAfter(ZonedDateTime.now()))
+                .collect(Collectors.toList());
     }
 
     // Extrae la información de las cookies en una lista de cadenas
-    public static List<String> extractCookiesInformation(Map<String, NewCookie> cookies) {
+    public static List<String> extractCookiesInformation(List<SerializableCookie> cookies) {
         List<String> cookiesList = new ArrayList<>();
 
-        for (Map.Entry<String, NewCookie> cookieEntry : cookies.entrySet()) {
-            String cookieName = cookieEntry.getKey();
-            NewCookie cookie = cookieEntry.getValue();
-            cookiesList.add(cookieName + "=" + cookie.getValue());
+        for (SerializableCookie cookie : cookies) {
+            cookiesList.add(cookie.toString());
         }
 
         return cookiesList;
+    }
+    
+    // Obtiene las cookies del website
+    public static List<String> getWebsiteCookies(String cookiesFilePath, String uri) {
+        // Cargar las cookies almacenadas si existen
+        if (cookiesFilePath != null) {
+            List<SerializableCookie> existingCookies = loadCookies(cookiesFilePath);
+            if (!existingCookies.isEmpty()) {
+                return CookieManager.extractCookiesInformation(existingCookies);
+            }
+        }
+        
+        try {
+            // Realiza una primera solicitud para obtener las cookies
+            ApiClient client = new ApiClient();
+            ApiRequest request = new ApiRequest(uri, 200, ApiMethodType.GET);
+            ApiResponse response = client.executeApiRequest(request);
+
+            return CookieManager.extractCookiesInformation(parseCookies(response.getCookies()));
+        } catch (Exception e) {
+            logException(e);
+            throw e;
+        }
     }
 }

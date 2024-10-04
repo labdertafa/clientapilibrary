@@ -1,5 +1,8 @@
 package com.laboratorio.clientapilibrary.model;
 
+import java.io.File;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -8,38 +11,52 @@ import lombok.Setter;
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 2.0
  * @created 06/09/2024
- * @updated 08/09/2024
+ * @updated 03/10/2024
  */
 
 @Getter @Setter
 public class ApiRequest {
-    private String uri;
-    private int okResponse;
+    private final String uri;
+    private final int okResponse;
+    private final ApiMethodType method;
     private List<ApiElement> elements;
     private List<String> cookies;
     private String payload;
-    private String binaryFile;
+    private File binaryFile;
     private boolean formData;
 
-    public ApiRequest(String uri, int okResponse) {
+    public ApiRequest(String uri, int okResponse, ApiMethodType method) {
         this.uri = uri;
         this.okResponse = okResponse;
+        this.method = method;
         this.elements = new ArrayList<>();
         this.cookies = new ArrayList<>();
         this.payload = null;
         this.binaryFile = null;
         this.formData = false;
     }
-
-    public ApiRequest(String uri, int okResponse, String payload) {
+    
+    public ApiRequest(String uri, int okResponse, ApiMethodType method, String payload) {
         this.uri = uri;
         this.okResponse = okResponse;
+        this.method = method;
         this.elements = new ArrayList<>();
         this.cookies = new ArrayList<>();
         this.payload = payload;
         this.binaryFile = null;
+        this.formData = false;
+    }
+    
+    public ApiRequest(String uri, int okResponse, ApiMethodType method, File binaryFile) {
+        this.uri = uri;
+        this.okResponse = okResponse;
+        this.method = method;
+        this.elements = new ArrayList<>();
+        this.cookies = new ArrayList<>();
+        this.payload = null;
+        this.binaryFile = binaryFile;
         this.formData = false;
     }
     
@@ -68,5 +85,25 @@ public class ApiRequest {
     public void addJsonFormData(String name, String value) {
        this.formData = true;
        this.elements.add(new ApiElement(ApiElementType.FORMDATA, name, ApiValueType.JSON, value));
+    }
+    
+    public String getQueryParams() {
+        StringBuilder queryParam = null;
+        
+        for (ApiElement element : this.elements) {
+            if (element.getType() == ApiElementType.PATHPARAM) {
+                if (queryParam == null) {
+                    queryParam = new StringBuilder("?");
+                }
+                queryParam.append(element.getName()).append("=");
+                queryParam.append(URLEncoder.encode(element.getValue(), StandardCharsets.UTF_8));
+            }
+        }
+        
+        if (queryParam == null) {
+            return "";
+        }
+        
+        return queryParam.toString();
     }
 }
