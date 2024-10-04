@@ -125,6 +125,9 @@ public class ApiClient {
         try {
             String contentEncoding = httpConn.getHeaderField("Content-Encoding");
             inputStream = httpConn.getInputStream();
+            if (inputStream == null) {
+                return "";
+            }
             byte[] responseBytes = readInputStreamAsBytes(inputStream);
 
             return processResponse(contentEncoding, responseBytes);
@@ -225,13 +228,13 @@ public class ApiClient {
     private void processJsonBody(HttpURLConnection httpConn, ApiRequest request) throws IOException {
         OutputStream os = null;
         
-        httpConn.setRequestProperty("Content-Type", "application/json; utf-8");
-        httpConn.setDoOutput(true); 
+        httpConn.setRequestProperty("Content-Type", "application/json");
         
         try  {
             // Enviar el cuerpo JSON
+            byte[] input = request.getPayload().getBytes(StandardCharsets.UTF_8);
+            httpConn.setRequestProperty("Content-Length", String.valueOf(input.length));
             os = httpConn.getOutputStream();
-            byte[] input = request.getPayload().getBytes("utf-8");
             os.write(input, 0, input.length);
         } catch (IOException e) {
             log.error("Error enviando el cuerpo de la solicitud: " + request.getUri());

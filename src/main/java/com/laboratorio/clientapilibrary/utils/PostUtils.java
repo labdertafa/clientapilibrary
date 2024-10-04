@@ -5,10 +5,14 @@ import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
 import com.laboratorio.clientapilibrary.exceptions.UtilsApiException;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,6 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -28,10 +34,22 @@ import org.jsoup.nodes.Element;
  * @author Rafael
  * @version 1.0
  * @created 07/09/2024
- * @updated 09/09/2024
+ * @updated 04/10/2024
  */
 public class PostUtils {
+    private static final Logger log = LogManager.getLogger(PostUtils.class);
+
     private PostUtils() {
+    }
+
+    private static void logException(Exception e) {
+        log.error("Error: " + e.getMessage());
+        if (e.getCause() != null) {
+            log.error("Causa: " + e.getCause().getMessage());
+            if (e.getCause().getCause() != null) {
+                log.error("Causa: " + e.getCause().getCause().getMessage());
+            }
+        }
     }
 
     public static List<ElementoPost> extraerElementosPost(String texto) {
@@ -78,7 +96,7 @@ public class PostUtils {
         return resultados;
     }
 
-    public static Map<String, String> getUrlMetadata(String url) {
+    public static Map<String, String> getUrlMetadata(String url) throws IOException {
         Map<String, String> metadata = new HashMap<>();
 
         try {
@@ -114,12 +132,86 @@ public class PostUtils {
             if (ogImage != null) {
                 metadata.put("previmg", ogImage.attr("content"));
             }
+            
+            log.debug("Se extrajo la metadata de la url: " + url);
         } catch (IOException e) {
-            throw new UtilsApiException(PostUtils.class.getName(), "Error extrayendo la metadata de la URL " + url, e);
+            log.error("Error extrayendo la metadata de la URL " + url);
+            logException(e);
+            throw e;
         }
         return metadata;
     }
-    
+
+    /* Almacena una imagen de una URL en un directorio pasado por parámetro */
+    public static void downloadImage(String imageUrl, String destinationFile) throws IOException {
+        HttpURLConnection connection = null;
+        InputStream inputStream = null;
+        FileOutputStream fileOutputStream = null;
+
+        try {
+            // Crear la URL a partir del enlace de la imagen
+            URL url = new URL(imageUrl);
+
+            // Abrir la conexión HTTP
+            connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            // Verificar el código de respuesta
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                // Obtener el input stream de la conexión
+                inputStream = new BufferedInputStream(connection.getInputStream());
+                fileOutputStream = new FileOutputStream(destinationFile);
+
+                // Buffer para almacenar los datos leídos
+                byte[] buffer = new byte[4096];
+                int bytesRead;
+
+                // Leer desde el input stream y escribir en el archivo
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    fileOutputStream.write(buffer, 0, bytesRead);
+                }
+
+                log.debug("Imagen descargada correctamente a: " + destinationFile);
+            } else {
+                log.error("Error en la descarga. Código de respuesta: " + responseCode);
+            }
+        } catch (IOException e) {
+            log.error("Error descargando imagen: " + e.getMessage());
+            logException(e);
+        } finally {
+            if (fileOutputStream != null) {
+                fileOutputStream.close();
+            }
+            if (inputStream != null) {
+                inputStream.close();
+            }
+            if (connection != null) {
+                connection.disconnect();
+            }
+        }
+    }
+
+    /* Extrae la imagen de la metadata del primer enlace encontrado en los elementos del Post */
+    public static String getThumbnail(List<ElementoPost> elementos, String destination) {
+        try {
+            for (ElementoPost elem : elementos) {
+                if (elem.getType() == TipoElementoPost.Link) {
+                    Map<String, String> metadata = getUrlMetadata(elem.getContenido());
+                    String imageUrl = metadata.get("previmg");
+                    if (imageUrl != null) {
+                        downloadImage(imageUrl, destination);
+                        return destination;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
+    }
+
     public static String calculateMD5Base64(String filePath) {
         try {
             // Crear un MessageDigest para MD5
@@ -144,18 +236,18 @@ public class PostUtils {
             throw new UtilsApiException(PostUtils.class.getName(), "Error al calcular el checksum MD5 del archivo " + filePath, e);
         }
     }
-    
+
     private static int extraerNumeros(String texto) {
         // Expresión regular para extraer números
         Pattern numberPattern = Pattern.compile("\\d+");
-        
+
         Matcher matcher = numberPattern.matcher(texto);
         matcher.find();
         String numbers = matcher.group();
-        
+
         return Integer.parseInt(numbers);
     }
-    
+
     public static ImageMetadata extractImageMetadata(String filePath) {
         try {
             // Ruta al archivo JPG
@@ -163,10 +255,9 @@ public class PostUtils {
 
             // Leer la metadata de la imagen
             Metadata metadata = ImageMetadataReader.readMetadata(file);
-            
+
             ImageMetadata imageMetadata = new ImageMetadata();
 
-            
             // Recorrer todos los directorios de metadata
             for (Directory directory : metadata.getDirectories()) {
                 // Recorrer todas las etiquetas en cada directorio
@@ -188,6 +279,8 @@ public class PostUtils {
                 }
             }
             
+            log.debug("Se extrajo la metadata de la imagen: " + filePath);
+
             return imageMetadata;
         } catch (Exception e) {
             throw new UtilsApiException(PostUtils.class.getName(), "Error al extraer la metadata de la imagen " + filePath, e);

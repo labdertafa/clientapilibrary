@@ -13,7 +13,7 @@ import lombok.Setter;
  * @author Rafael
  * @version 2.0
  * @created 06/09/2024
- * @updated 03/10/2024
+ * @updated 04/10/2024
  */
 
 @Getter @Setter
@@ -94,6 +94,8 @@ public class ApiRequest {
             if (element.getType() == ApiElementType.PATHPARAM) {
                 if (queryParam == null) {
                     queryParam = new StringBuilder("?");
+                } else {
+                    queryParam.append("&");
                 }
                 queryParam.append(element.getName()).append("=");
                 queryParam.append(URLEncoder.encode(element.getValue(), StandardCharsets.UTF_8));

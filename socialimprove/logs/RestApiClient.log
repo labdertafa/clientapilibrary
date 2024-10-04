@@ -70,3 +70,108 @@
 2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
 2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
 2024-10-04 at 09:59:20 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 08:29:19 GMT' could not be parsed at index 7
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 12:31:03 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 11:01:02 GMT' could not be parsed at index 7
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 13:39:33 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 13:39:33 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 13:39:33 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:09:33 GMT' could not be parsed at index 7
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 13:49:53 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:19:53 GMT' could not be parsed at index 7
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 13:50:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 13:50:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 13:50:30 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:20:30 GMT' could not be parsed at index 7
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 15:17:47 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 15:17:47 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 15:17:47 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 13:47:47 GMT' could not be parsed at index 7
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 15:32:49 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 15:32:49 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 15:32:49 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 14:02:49 GMT' could not be parsed at index 7
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-04 at 15:47:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-04 at 15:47:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-04 at 15:47:31 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 14:17:31 GMT' could not be parsed at index 7
