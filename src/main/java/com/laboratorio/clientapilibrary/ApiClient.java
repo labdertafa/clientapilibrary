@@ -19,7 +19,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -35,7 +34,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 06/09/2024
- * @updated 04/10/2024
+ * @updated 05/10/2024
  */
 public class ApiClient {
     private static final Logger log = LogManager.getLogger(ApiClient.class);
@@ -172,6 +171,7 @@ public class ApiClient {
             for (ApiElement element : request.getElements()) {
                 if (element.getType() == ApiElementType.HEADER) {
                     httpConn.setRequestProperty(element.getName(), element.getValue());
+                    log.debug(element.getName() + ": " + element.getValue());
                 }
             }
             
@@ -306,7 +306,7 @@ public class ApiClient {
         } else {
             builder.append("--").append(boundary).append(LINE_FEED);
             builder.append("Content-Disposition: form-data; name=\"").append(element.getName()).append("\"").append(LINE_FEED);
-            builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
+            // builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
             builder.append(LINE_FEED);
         }
         
@@ -320,21 +320,22 @@ public class ApiClient {
         String boundary = "----WebKitFormBoundary" + UUID.randomUUID().toString();
         String contentType = "multipart/form-data; boundary=" + boundary;
         
+        // Buffer temporal para calcular el Content-Length
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+        
         try {
             httpConn.setRequestProperty("Content-Type", contentType);
-
-            OutputStream outputStream = httpConn.getOutputStream();
-            PrintWriter writer = new PrintWriter(outputStream, true, StandardCharsets.UTF_8);
-
+            log.debug("Content-Type: " + contentType);
+            
             // Se envía los elementos del formulario
             for (ApiElement element : request.getElements()) {
                 if (element.getType() == ApiElementType.FORMDATA) {
                     String elementHeader = this.getFormdataElementHeader(boundary, element);
-                    writer.append(elementHeader);
+                    outputStream.writeBytes(elementHeader);
                     
                     // Se agrega el valor del elemento
                     if (element.getValueType() == ApiValueType.FILE) {
-                        writer.flush();
                         File imageFile = new File(element.getValue());
                         FileInputStream inputStream = new FileInputStream(imageFile);
                         byte[] buffer = new byte[4096];
@@ -342,17 +343,27 @@ public class ApiClient {
                         while ((bytesRead = inputStream.read(buffer)) != -1) {
                             outputStream.write(buffer, 0, bytesRead);
                         }
-                        outputStream.flush();
+                        inputStream.close();
                     } else {
-                        writer.append(element.getValue()).append(LINE_FEED);
-                        writer.flush();
+                        String temp = element.getValue() + LINE_FEED;
+                        outputStream.writeBytes(temp);
                     }
                 }
             }
 
             // Terminar la solicitud multipart
-            writer.append(LINE_FEED).append("--" + boundary + "--").append(LINE_FEED);
-            writer.flush();
+            String temp = "--" + boundary + "--" + LINE_FEED;
+            outputStream.writeBytes(temp);
+            
+            // Calculamos el tamaño total del contenido
+            int contentLength = byteArrayOutputStream.size();
+            httpConn.setRequestProperty("Content-Length", Integer.toString(contentLength));
+            log.debug("Content-Length: " + Integer.toString(contentLength));
+            
+            // log.info(LINE_FEED + byteArrayOutputStream.toString());
+            try (OutputStream requestStream = httpConn.getOutputStream()) {
+                byteArrayOutputStream.writeTo(requestStream);
+            }
         } catch (Exception e) {
             log.error("Se ha producido un error procesando un formulario multi-partes");
             logException(e);

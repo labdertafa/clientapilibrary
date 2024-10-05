@@ -1,177 +1,591 @@
-2024-10-04 at 09:05:28 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:05:28 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:05:28 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:05:28 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:05:39 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:05:39 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:05:40 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://www.minds.com/labrafa/
-2024-10-04 at 09:05:40 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:05:40 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:05:40 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:05:40 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:06:58 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:06:58 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:06:59 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Text 'Fri, 04-Oct-24 07:36:58 GMT' could not be parsed at index 7
-2024-10-04 at 09:13:14 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:13:14 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:13:15 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://www.minds.com/labrafa
-2024-10-04 at 09:13:15 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa
-2024-10-04 at 09:13:15 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa
-2024-10-04 at 09:13:15 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa
-2024-10-04 at 09:13:15 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa
-2024-10-04 at 09:13:57 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:13:57 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:13:58 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://www.minds.com/labrafa/
-2024-10-04 at 09:13:58 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:13:58 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:13:58 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:13:58 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Server returned HTTP response code: 401 for URL: https://www.minds.com/labrafa/
-2024-10-04 at 09:15:01 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:15:01 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:15:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Text 'Fri, 04-Oct-24 07:45:02 GMT' could not be parsed at index 7
-2024-10-04 at 09:44:32 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:44:32 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:44:33 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 08:14:32 GMT' could not be parsed at index 0
-2024-10-04 at 09:49:28 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:49:28 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:49:29 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 08:19:28 GMT' could not be parsed at index 7
-2024-10-04 at 09:50:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 09:50:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 09:50:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 09:50:37 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:02 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:51:27 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 413 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:53:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 09:53:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:53:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:53:12 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://fakestoreapi.com/products/1
-2024-10-04 at 09:54:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 09:54:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 09:54:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 09:54:37 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 09:59:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 09:59:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 09:59:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 09:59:18 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 09:59:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 09:59:20 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 08:29:19 GMT' could not be parsed at index 7
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 12:31:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 12:31:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 12:31:03 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 11:01:02 GMT' could not be parsed at index 7
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 13:39:32 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 13:39:33 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 13:39:33 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 13:39:33 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:09:33 GMT' could not be parsed at index 7
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 13:49:52 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 13:49:53 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:19:53 GMT' could not be parsed at index 7
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 13:50:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 13:50:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 13:50:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 13:50:30 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 12:20:30 GMT' could not be parsed at index 7
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 15:17:46 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 15:17:47 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 15:17:47 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 15:17:47 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 13:47:47 GMT' could not be parsed at index 7
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 15:32:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 15:32:49 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 15:32:49 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 15:32:49 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 14:02:49 GMT' could not be parsed at index 7
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-04 at 15:47:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-04 at 15:47:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-04 at 15:47:30 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2024-10-04 at 15:47:31 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Fri, 04-Oct-24 14:17:31 GMT' could not be parsed at index 7
+2024-10-05 at 09:49:50 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 09:49:50 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 09:49:51 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 08:19:51 GMT' could not be parsed at index 7
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:50:18 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 09:50:19 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 09:50:20 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 08:20:19 GMT' could not be parsed at index 7
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:58:01 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 09:58:02 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 09:58:02 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 08:28:02 GMT' could not be parsed at index 7
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 10:03:21 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 10:03:22 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 10:03:22 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 10:03:22 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 08:33:22 GMT' could not be parsed at index 7
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:13:42 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 11:13:43 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 11:13:44 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 09:43:43 GMT' could not be parsed at index 7
+2024-10-05 at 11:26:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:26:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 11:26:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 11:26:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 11:26:35 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 11:26:36 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 09:56:35 GMT' could not be parsed at index 7
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Se ha producido un error procesando un formulario multi-partes
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:26:36 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 11:29:09 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 11:29:10 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 09:59:10 GMT' could not be parsed at index 7
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Se ha producido un error procesando un formulario multi-partes
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:29:10 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Se ha producido un error procesando un formulario multi-partes
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:35:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Se ha producido un error procesando un formulario multi-partes
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:43:45 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Se ha producido un error procesando un formulario multi-partes
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:46:20 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:48:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:48:02 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Already connected
+2024-10-05 at 11:48:02 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Already connected
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 11:56:29 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 11:56:30 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 10:26:29 GMT' could not be parsed at index 7
+2024-10-05 at 12:04:50 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:04:50 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:04:50 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:04:50 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:06:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:06:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:06:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:06:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:25 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:25 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:25 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:25 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:07:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:09:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:09:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:09:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:09:44 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:11:26 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:11:26 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:11:26 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:11:26 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:12:05 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:12:05 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:12:05 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:12:05 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:08 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:08 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:08 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:08 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:44 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:13:44 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:20:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:20:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:20:52 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:20:52 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:22:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:22:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:22:37 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:22:37 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:24:24 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:24:24 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:24:24 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:24:24 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:25:47 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:25:47 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:25:47 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:25:47 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:03 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:39 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:39 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:39 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:26:39 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:28:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:28:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:28:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:28:57 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:32:13 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:32:13 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:32:13 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:32:13 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:33:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:33:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:33:27 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:33:27 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:34:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:34:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:34:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:34:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:36:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:36:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:36:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:36:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:37:56 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type
+2024-10-05 at 12:37:56 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length
+2024-10-05 at 12:37:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:37:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:37:57 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:37:57 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:38:52 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryce14a80d-d91a-4601-b1b6-3c56982edf87
+2024-10-05 at 12:38:52 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 647
+2024-10-05 at 12:38:53 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:38:53 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:38:53 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:38:53 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 647
+2024-10-05 at 12:41:31 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - ------WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+------WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+------WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+------WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+
+------WebKitFormBoundary47ff2463-68b0-4e83-a19a-7abaad54a242--
+
+2024-10-05 at 12:41:31 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:41:31 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:41:31 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:41:31 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 643
+2024-10-05 at 12:46:42 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+------WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+------WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+------WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+------WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----WebKitFormBoundary7f995fea-2d0a-49df-b483-4e09f885c8f6--
+
+2024-10-05 at 12:46:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:46:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:46:42 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:46:42 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 626
+2024-10-05 at 12:49:21 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+------WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+------WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+------WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+------WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----WebKitFormBoundary05c6aa4e-2f5e-4ac9-a64f-dcaff8a8d174--
+
+2024-10-05 at 12:49:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:49:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:49:21 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:49:21 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----------------------------307384518773505112668674
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 596
+2024-10-05 at 12:51:02 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----------------------------307384518773505112668674--
+
+2024-10-05 at 12:51:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:51:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:51:03 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:51:03 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----------------------------307384518773505112668674
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 613
+2024-10-05 at 12:52:00 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+------------------------------307384518773505112668674
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----------------------------307384518773505112668674--
+
+2024-10-05 at 12:52:00 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:52:00 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:52:00 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:52:00 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=----------------------------307384518773505112668674
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 605
+2024-10-05 at 12:59:38 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+----------------------------307384518773505112668674
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+----------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+----------------------------307384518773505112668674
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+----------------------------307384518773505112668674
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----------------------------307384518773505112668674--
+
+2024-10-05 at 12:59:38 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:59:38 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:59:38 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 12:59:38 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=--------------------------241487380516674714467340
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 595
+2024-10-05 at 13:03:43 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+--------------------------241487380516674714467340
+Content-Disposition: form-data; name="refresh_token"
+
+3d989e6f190c07ffa2f22cabda48ada0d59ab0f6
+--------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+--------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+--------------------------241487380516674714467340
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+--------------------------241487380516674714467340--
+
+2024-10-05 at 13:03:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:03:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:03:43 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:03:43 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=--------------------------241487380516674714467340
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 607
+2024-10-05 at 13:05:48 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="refresh_token"
+
+3d989e6f190c07ffa2f22cabda48ada0d59ab0f6
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+
+----------------------------241487380516674714467340--
+
+2024-10-05 at 13:05:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:05:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:05:48 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:05:48 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=--------------------------241487380516674714467340
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 603
+2024-10-05 at 13:07:09 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="refresh_token"
+
+3d989e6f190c07ffa2f22cabda48ada0d59ab0f6
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+--------------------------241487380516674714467340--
+
+2024-10-05 at 13:07:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:07:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:07:10 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:07:10 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 400 for URL: https://api.imgur.com/oauth2/token
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept: */*
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Accept-Encoding: gzip, deflate, br
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Host: api.imgur.com
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - User-Agent: PostmanRuntime/7.42.0
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Postman-Token: 8034c5d7-8a44-4ec4-84b1-77b7c06fbca2
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Connection: keep-alive
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=--------------------------241487380516674714467340
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 605
+2024-10-05 at 13:10:49 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----------------------------241487380516674714467340--
+
+2024-10-05 at 13:11:54 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Type: multipart/form-data; boundary=--------------------------241487380516674714467340
+2024-10-05 at 13:11:54 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - Content-Length: 605
+2024-10-05 at 13:11:54 CEST INFO  com.laboratorio.clientapilibrary.ApiClient - 
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="refresh_token"
+
+c52e7c8f05bd0b30335d31de4558b207b5e92cc6
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_id"
+
+1f3ce0ecda2442e
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="client_secret"
+
+121a091ec0350e36f5ca1a72cce5e82f6f619cf7
+----------------------------241487380516674714467340
+Content-Disposition: form-data; name="grant_type"
+
+refresh_token
+----------------------------241487380516674714467340--
+
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 13:13:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 13:13:56 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 13:13:56 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 13:13:56 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 11:43:56 GMT' could not be parsed at index 7
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2024-10-05 at 13:14:34 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2024-10-05 at 13:14:35 CEST WARN  com.laboratorio.clientapilibrary.utils.CookieManager - Error al analizar la fecha de expiración de la cookie: Text 'Sat, 05-Oct-24 11:44:34 GMT' could not be parsed at index 7

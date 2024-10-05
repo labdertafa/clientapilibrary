@@ -26,7 +26,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 01/09/2024
- * @updated 04/10/2024
+ * @updated 05/10/2024
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -67,6 +67,7 @@ public class CookieManager {
                                 cookie.setExpiry(ZonedDateTime.parse(attributeValue, dateFormat));
                             } catch (Exception e) {
                                 log.warn("Error al analizar la fecha de expiración de la cookie: " + e.getMessage());
+                                cookie.setExpiry(ZonedDateTime.now().plusDays(1L));
                             }
                         }
                         case "version" -> cookie.setVersion(Integer.parseInt(attributeValue));
@@ -134,7 +135,7 @@ public class CookieManager {
 
         // Filtra cookies expiradas considerando la zona horaria local
         return cookies.stream()
-                .filter(c -> c.getExpiry().isAfter(ZonedDateTime.now()))
+                .filter(c -> c.getExpiry() == null || c.getExpiry().isAfter(ZonedDateTime.now()))
                 .collect(Collectors.toList());
     }
 
@@ -150,12 +151,12 @@ public class CookieManager {
     }
     
     // Obtiene las cookies del website
-    public static List<String> getWebsiteCookies(String cookiesFilePath, String uri) {
+    public static List<String> getWebsiteCookies(String cookiesFilePath, String uri, String userAgent) {
         // Cargar las cookies almacenadas si existen
         if (cookiesFilePath != null) {
             List<SerializableCookie> existingCookies = loadCookies(cookiesFilePath);
             if (!existingCookies.isEmpty()) {
-                return CookieManager.extractCookiesInformation(existingCookies);
+                return extractCookiesInformation(existingCookies);
             }
         }
         
@@ -163,9 +164,10 @@ public class CookieManager {
             // Realiza una primera solicitud para obtener las cookies
             ApiClient client = new ApiClient();
             ApiRequest request = new ApiRequest(uri, 200, ApiMethodType.GET);
+            request.addApiHeader("User-Agent", userAgent);
             ApiResponse response = client.executeApiRequest(request);
 
-            return CookieManager.extractCookiesInformation(parseCookies(response.getCookies()));
+            return extractCookiesInformation(parseCookies(response.getCookies()));
         } catch (Exception e) {
             logException(e);
             throw e;

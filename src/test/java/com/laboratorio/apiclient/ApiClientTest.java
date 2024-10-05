@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Rafael
  * @version 1.0
  * @created 06/09/2024
- * @updated 04/10/2024
+ * @updated 05/10/2024
  */
 public class ApiClientTest {
     private static final Logger log = LogManager.getLogger(ApiClientTest.class);
@@ -54,8 +54,9 @@ public class ApiClientTest {
     public void executeGetRequestBrotliEncoded() {
         String uri = "https://www.minds.com/api/v1/channel/disobedientcitizen";
         ApiRequest request = new ApiRequest(uri, 200, ApiMethodType.GET);
+        String userAgent = "PostmanRuntime/7.42.0";
         
-        List<String> cookiesList = CookieManager.getWebsiteCookies("temp/cookies.ser", "https://www.minds.com/");
+        List<String> cookiesList = CookieManager.getWebsiteCookies("temp/cookies.ser", "https://www.minds.com/", userAgent);
         for (String cookie : cookiesList) {
             request.addApiCookie(cookie);
         }
@@ -142,4 +143,21 @@ public class ApiClientTest {
         
         assertTrue(!response.getHttpHeaders().isEmpty());
     }
+    
+/*    @Test
+    public void renovarTokenImgur() {
+        String refreshToken = "c52e7c8f05bd0b30335d31de4558b207b5e92cc6";
+        String clientId = "1f3ce0ecda2442e";
+        String clientSecret = "121a091ec0350e36f5ca1a72cce5e82f6f619cf7";
+        
+        ApiRequest request = new ApiRequest("https://api.imgur.com/oauth2/token", 200, ApiMethodType.POST);
+        request.addTextFormData("refresh_token", refreshToken);
+        request.addTextFormData("client_id", clientId);
+        request.addTextFormData("client_secret", clientSecret);
+        request.addTextFormData("grant_type", "refresh_token");
+
+        ApiResponse response = client.executeApiRequest(request);
+        
+        assertTrue(response.getResponseStr().length() > 0);
+    } */
 }
