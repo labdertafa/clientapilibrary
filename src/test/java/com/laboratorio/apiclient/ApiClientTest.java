@@ -160,4 +160,24 @@ public class ApiClientTest {
         
         assertTrue(response.getResponseStr().length() > 0);
     } */
+    
+    /* @Test
+    public void CargarImagenImgur() {
+        String accessToken = "f93ef05502cec22d885640502cf513eea7c5f0d0";
+        String imagePath = "C:\\Users\\rafa\\Pictures\\Formula_1\\Monza_1955.jpg";
+        String title = "Título de prueba";
+        String description = "Descripción de prueba";
+        
+        ApiRequest request = new ApiRequest("https://api.imgur.com/3/image", 200, ApiMethodType.POST);
+        request.addFileFormData("image", imagePath);
+        request.addTextFormData("type", "image");
+        request.addTextFormData("title", title);
+        request.addTextFormData("description", description);
+        request.addApiHeader("Authorization", "Bearer " + accessToken);
+
+        ApiResponse response = client.executeApiRequest(request);
+        log.info("Response: " + response.getResponseStr());
+        
+        assertTrue(response.getResponseStr().contains(title));
+    } */
 }

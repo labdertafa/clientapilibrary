@@ -257,6 +257,7 @@ public class ApiClient {
         try {
             httpConn.setRequestProperty("Connection", "Keep-Alive");
             httpConn.setRequestProperty("Cache-Control", "no-cache");
+           httpConn.setRequestProperty("Content-Length", String.valueOf(request.getBinaryFile().length()));
 
             // Leemos el archivo binario
             fileInputStream = new FileInputStream(request.getBinaryFile());
@@ -306,7 +307,7 @@ public class ApiClient {
         } else {
             builder.append("--").append(boundary).append(LINE_FEED);
             builder.append("Content-Disposition: form-data; name=\"").append(element.getName()).append("\"").append(LINE_FEED);
-            // builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
+            builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
             builder.append(LINE_FEED);
         }
         
@@ -321,8 +322,8 @@ public class ApiClient {
         String contentType = "multipart/form-data; boundary=" + boundary;
         
         // Buffer temporal para calcular el Content-Length
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+        ByteArrayOutputStream multipart = new ByteArrayOutputStream();
+        // DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
         
         try {
             httpConn.setRequestProperty("Content-Type", contentType);
@@ -332,7 +333,7 @@ public class ApiClient {
             for (ApiElement element : request.getElements()) {
                 if (element.getType() == ApiElementType.FORMDATA) {
                     String elementHeader = this.getFormdataElementHeader(boundary, element);
-                    outputStream.writeBytes(elementHeader);
+                    multipart.writeBytes(elementHeader.getBytes(StandardCharsets.UTF_8));
                     
                     // Se agrega el valor del elemento
                     if (element.getValueType() == ApiValueType.FILE) {
@@ -341,28 +342,28 @@ public class ApiClient {
                         byte[] buffer = new byte[4096];
                         int bytesRead;
                         while ((bytesRead = inputStream.read(buffer)) != -1) {
-                            outputStream.write(buffer, 0, bytesRead);
+                            multipart.write(buffer, 0, bytesRead);
                         }
                         inputStream.close();
                     } else {
                         String temp = element.getValue() + LINE_FEED;
-                        outputStream.writeBytes(temp);
+                        multipart.writeBytes(temp.getBytes(StandardCharsets.UTF_8));
                     }
                 }
             }
 
             // Terminar la solicitud multipart
             String temp = "--" + boundary + "--" + LINE_FEED;
-            outputStream.writeBytes(temp);
+            multipart.writeBytes(temp.getBytes(StandardCharsets.UTF_8));
             
             // Calculamos el tamaño total del contenido
-            int contentLength = byteArrayOutputStream.size();
+            int contentLength = multipart.size();
             httpConn.setRequestProperty("Content-Length", Integer.toString(contentLength));
             log.debug("Content-Length: " + Integer.toString(contentLength));
             
             // log.info(LINE_FEED + byteArrayOutputStream.toString());
             try (OutputStream requestStream = httpConn.getOutputStream()) {
-                byteArrayOutputStream.writeTo(requestStream);
+                multipart.writeTo(requestStream);
             }
         } catch (Exception e) {
             log.error("Se ha producido un error procesando un formulario multi-partes");

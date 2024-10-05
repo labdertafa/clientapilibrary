@@ -96,7 +96,7 @@ public class PostUtils {
         return resultados;
     }
 
-    public static Map<String, String> getUrlMetadata(String url) throws IOException {
+    public static Map<String, String> getUrlMetadata(String url) {
         Map<String, String> metadata = new HashMap<>();
 
         try {
@@ -137,7 +137,6 @@ public class PostUtils {
         } catch (IOException e) {
             log.error("Error extrayendo la metadata de la URL " + url);
             logException(e);
-            throw e;
         }
         return metadata;
     }
