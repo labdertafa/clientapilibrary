@@ -34,9 +34,10 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 06/09/2024
- * @updated 05/10/2024
+ * @updated 06/10/2024
  */
 public class ApiClient {
+
     private static final Logger log = LogManager.getLogger(ApiClient.class);
     private final String LINE_FEED = "\r\n";
     private String cookiesFilePath;
@@ -49,7 +50,7 @@ public class ApiClient {
         Brotli4jLoader.ensureAvailability();
         this.cookiesFilePath = cookiesFilePath;
     }
-    
+
     private void logException(Exception e) {
         log.error("Error: " + e.getMessage());
         if (e.getCause() != null) {
@@ -59,11 +60,11 @@ public class ApiClient {
             }
         }
     }
-    
+
     // Procesar la respuesta HTTP
     private String processResponse(String contentEncoding, byte[] responseBytes) throws IOException {
         InputStream inputStream = null;
-        
+
         try {
             // Si la respuesta está codificada como Brotli (br)
             if ("br".equalsIgnoreCase(contentEncoding)) {
@@ -92,10 +93,10 @@ public class ApiClient {
             }
         }
     }
-    
+
     private byte[] readInputStreamAsBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = null;
-        
+
         try {
             byteArrayOutputStream = new ByteArrayOutputStream();
             byte[] buffer = new byte[4096];
@@ -106,7 +107,7 @@ public class ApiClient {
             return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
             throw e;
-        }  finally {
+        } finally {
             try {
                 if (byteArrayOutputStream != null) {
                     byteArrayOutputStream.close();
@@ -116,10 +117,10 @@ public class ApiClient {
             }
         }
     }
-    
+
     private String getHttpResponse(HttpURLConnection httpConn) throws IOException {
         InputStream inputStream = null;
-        
+
         // Se procesa la respuesta
         try {
             String contentEncoding = httpConn.getHeaderField("Content-Encoding");
@@ -131,7 +132,7 @@ public class ApiClient {
 
             return processResponse(contentEncoding, responseBytes);
         } catch (IOException e) {
-            throw  e;
+            throw e;
         } finally {
             try {
                 if (inputStream != null) {
@@ -142,23 +143,20 @@ public class ApiClient {
             }
         }
     }
-    
-    private List<String> processResponseCookies(HttpURLConnection httpConn) {
-        Map<String, List<String>> headerFields = httpConn.getHeaderFields();
-        List<String> cookiesHeader = headerFields.get("Set-Cookie");
-        
+
+    private void processResponseCookies(HttpURLConnection httpConn) {
+        List<String> cookiesHeader = httpConn.getHeaderFields().get("Set-Cookie");
+
         // Almacena las cookies de la respuesta si es necesario
         if ((this.cookiesFilePath != null) && (cookiesHeader != null)) {
             CookieManager.saveCookies(this.cookiesFilePath, cookiesHeader);
         }
-        
-        return cookiesHeader;
     }
-    
+
     public ApiResponse executeApiRequest(ApiRequest request) {
         HttpURLConnection httpConn = null;
         String uri = request.getUri() + request.getQueryParams();
-        
+
         try {
             URL url = new URL(request.getUri() + request.getQueryParams());
             httpConn = (HttpURLConnection) url.openConnection();
@@ -166,7 +164,7 @@ public class ApiClient {
             httpConn.setDoOutput(true); // habilita salida
             httpConn.setDoInput(true);  // habilita entrada
             httpConn.setRequestMethod(request.getMethod().name());
-            
+
             // Se agregan las cabeceras a la petición
             for (ApiElement element : request.getElements()) {
                 if (element.getType() == ApiElementType.HEADER) {
@@ -174,12 +172,12 @@ public class ApiClient {
                     log.debug(element.getName() + ": " + element.getValue());
                 }
             }
-            
+
             // Se agregan las cookies a la petición
             for (String cookie : request.getCookies()) {
                 httpConn.setRequestProperty("Cookie", cookie);
             }
-            
+
             // Se contruye el body de la petición
             if (request.getPayload() != null) {         // El cuerpo es un JSON
                 this.processJsonBody(httpConn, request);
@@ -192,24 +190,26 @@ public class ApiClient {
                     }
                 }
             }
-            
+
             // Se ejecuta la petición
             int responseCode = httpConn.getResponseCode();
-            
+
             // Se procesa la respuesta
             String responseStr = this.getHttpResponse(httpConn);
-            
+
             if (responseCode != request.getOkResponse()) {
                 String str = String.format("Respuesta del error %d:. Detalle: ", responseCode, responseStr);
                 throw new ApiClientException(ApiClient.class.getName(), str);
             }
-            
+
             // Se procesa la respuesta
             log.debug("Se ejecutó la solicitud: " + uri);
             log.debug("Response Code de la solicitud: " + responseCode);
             log.debug("Respuesta recibida: " + responseStr);
             
-            return new ApiResponse(httpConn.getHeaderFields(), this.processResponseCookies(httpConn), responseStr);
+            this.processResponseCookies(httpConn);
+
+            return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr);
         } catch (Exception e) {
             log.error("Error ejecutando la solicitud: " + uri);
             logException(e);
@@ -224,13 +224,13 @@ public class ApiClient {
             }
         }
     }
-    
+
     private void processJsonBody(HttpURLConnection httpConn, ApiRequest request) throws IOException {
         OutputStream os = null;
-        
+
         httpConn.setRequestProperty("Content-Type", "application/json");
-        
-        try  {
+
+        try {
             // Enviar el cuerpo JSON
             byte[] input = request.getPayload().getBytes(StandardCharsets.UTF_8);
             httpConn.setRequestProperty("Content-Length", String.valueOf(input.length));
@@ -249,15 +249,18 @@ public class ApiClient {
             }
         }
     }
-    
+
     private void processBinaryBody(HttpURLConnection httpConn, ApiRequest request) throws IOException {
         FileInputStream fileInputStream = null;
         DataOutputStream outputStream = null;
 
         try {
             httpConn.setRequestProperty("Connection", "Keep-Alive");
+            log.debug("Connection: Keep-Alive");
             httpConn.setRequestProperty("Cache-Control", "no-cache");
-           httpConn.setRequestProperty("Content-Length", String.valueOf(request.getBinaryFile().length()));
+            log.debug("Cache-Control: no-cache");
+            httpConn.setRequestProperty("Content-Length", String.valueOf(request.getBinaryFile().length()));
+            log.debug("Content-Length: " + String.valueOf(request.getBinaryFile().length()));
 
             // Leemos el archivo binario
             fileInputStream = new FileInputStream(request.getBinaryFile());
@@ -292,10 +295,10 @@ public class ApiClient {
             }
         }
     }
-    
+
     private String getFormdataElementHeader(String boundary, ApiElement element) {
         StringBuilder builder = new StringBuilder();
-        
+
         if (element.getValueType() == ApiValueType.FILE) {
             ImageMetadata metadata = PostUtils.extractImageMetadata(element.getValue());
             File imageFile = new File(element.getValue());
@@ -310,31 +313,31 @@ public class ApiClient {
             builder.append("Content-Type: text/plain; charset=UTF-8").append(LINE_FEED);
             builder.append(LINE_FEED);
         }
-        
+
         log.debug("Se agregó un elemento al Formdata: " + builder.toString());
-        
+
         return builder.toString();
     }
-    
+
     public void processMultipartFormBody(HttpURLConnection httpConn, ApiRequest request) {
         // Generar un boundary único
         String boundary = "----WebKitFormBoundary" + UUID.randomUUID().toString();
         String contentType = "multipart/form-data; boundary=" + boundary;
-        
+
         // Buffer temporal para calcular el Content-Length
         ByteArrayOutputStream multipart = new ByteArrayOutputStream();
         // DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
-        
+
         try {
             httpConn.setRequestProperty("Content-Type", contentType);
             log.debug("Content-Type: " + contentType);
-            
+
             // Se envía los elementos del formulario
             for (ApiElement element : request.getElements()) {
                 if (element.getType() == ApiElementType.FORMDATA) {
                     String elementHeader = this.getFormdataElementHeader(boundary, element);
                     multipart.writeBytes(elementHeader.getBytes(StandardCharsets.UTF_8));
-                    
+
                     // Se agrega el valor del elemento
                     if (element.getValueType() == ApiValueType.FILE) {
                         File imageFile = new File(element.getValue());
@@ -345,6 +348,7 @@ public class ApiClient {
                             multipart.write(buffer, 0, bytesRead);
                         }
                         inputStream.close();
+                        multipart.writeBytes(LINE_FEED.getBytes(StandardCharsets.UTF_8));
                     } else {
                         String temp = element.getValue() + LINE_FEED;
                         multipart.writeBytes(temp.getBytes(StandardCharsets.UTF_8));
@@ -355,12 +359,12 @@ public class ApiClient {
             // Terminar la solicitud multipart
             String temp = "--" + boundary + "--" + LINE_FEED;
             multipart.writeBytes(temp.getBytes(StandardCharsets.UTF_8));
-            
+
             // Calculamos el tamaño total del contenido
             int contentLength = multipart.size();
             httpConn.setRequestProperty("Content-Length", Integer.toString(contentLength));
             log.debug("Content-Length: " + Integer.toString(contentLength));
-            
+
             // log.info(LINE_FEED + byteArrayOutputStream.toString());
             try (OutputStream requestStream = httpConn.getOutputStream()) {
                 multipart.writeTo(requestStream);

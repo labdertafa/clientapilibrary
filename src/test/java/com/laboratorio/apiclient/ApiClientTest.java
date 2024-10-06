@@ -180,4 +180,49 @@ public class ApiClientTest {
         
         assertTrue(response.getResponseStr().contains(title));
     } */
+    
+    /* @Test
+    public void subirImageGettr() {
+        String filePath = "C:\\Users\\rafa\\Pictures\\Formula_1\\Spa_1950.jpg";
+        String accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJsYWJyYWZhIiwidXNlcm5hbWUiOiJsYWJyYWZhIiwibGV2ZWwiOjAsImd2ZXIiOiIyRTY1OTE4RiIsImN2ZXIiOiJTUjhQMkQiLCJpYXQiOjE3MjU0NjI3ODIsImV4cCI6MjA0MDgyMjc4Mn0.7C_WwyYRFsC30xwQ5i6st988EqaTm9UmpHPC4_YNres";
+        String endpoint = "https://upload.gettr.com/media/get_upload_channel";
+        int okStatus1 = 200;
+        int okStatus2 = 201;
+        int okStatus3 = 200;
+        
+        ApiRequest request1 = new ApiRequest(endpoint, okStatus1, ApiMethodType.GET);
+        request1.addApiHeader("Authorization", accessToken);
+        request1.addApiHeader("filename", "Spa_1950.jpg");
+        request1.addApiHeader("userid", "labrafa");
+        
+        Gson gson = new Gson();
+        ApiResponse response1 = client.executeApiRequest(request1);
+        GettrUploadChannel uploadChannel = gson.fromJson(response1.getResponseStr(), GettrUploadChannel.class);
+        
+        log.info("Tengo el canal para subir la imagen: " + uploadChannel.getGcs().getUrl());
+            
+        ApiRequest request2 = new ApiRequest(uploadChannel.getGcs().getUrl(), okStatus2, ApiMethodType.POST, "");
+        request2.addApiHeader("Content-Type", "image/jpeg");
+        request2.addApiHeader("X-Goog-Resumable", "start");
+        
+        ApiResponse response2 = client.executeApiRequest(request2);
+        
+        String imageId = null;
+        List<String> headerList = response2.getHttpHeaders().get("X-GUploader-UploadID");
+        if ((headerList != null) && (!headerList.isEmpty())) {
+            imageId = headerList.get(0);
+        }
+        log.debug("He obtenido el ID de la imagen: " + imageId);
+            
+        File file = new File(filePath);
+        ApiRequest request3 = new ApiRequest(uploadChannel.getGcs().getUrl() + "&upload_id=" + imageId, okStatus3, ApiMethodType.PUT, file);
+        //request3.addApiPathParam("upload_id", imageId);
+        request3.addApiHeader("Content-Type", "image/jpeg");
+        String md5Str = PostUtils.calculateMD5Base64(filePath);
+        request3.addApiHeader("content-md5", md5Str);
+
+        client.executeApiRequest(request3);
+        
+        assertTrue(true);
+    } */
 }
