@@ -26,7 +26,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 01/09/2024
- * @updated 05/10/2024
+ * @updated 18/10/2024
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -66,7 +66,7 @@ public class CookieManager {
                                 DateTimeFormatter dateFormat = DateTimeFormatter.RFC_1123_DATE_TIME;
                                 cookie.setExpiry(ZonedDateTime.parse(attributeValue, dateFormat));
                             } catch (Exception e) {
-                                log.warn("Error al analizar la fecha de expiración de la cookie: " + e.getMessage());
+                                log.debug("Error al analizar la fecha de expiración de la cookie: " + e.getMessage());
                                 cookie.setExpiry(ZonedDateTime.now().plusDays(1L));
                             }
                         }
@@ -128,7 +128,7 @@ public class CookieManager {
             }
             
             log.debug("Las cookies de Truth Social de cargaron exitosamente.");
-        } catch (Exception e) {
+        } catch (IOException | ClassNotFoundException e) {
             log.error("Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.");
             logException(e);
         }
