@@ -1,11 +1,11 @@
 package com.laboratorio.clientapilibrary.utils;
 
+import jakarta.mail.Folder;
+import jakarta.mail.Message;
+import jakarta.mail.Session;
+import jakarta.mail.Store;
+import jakarta.mail.search.SubjectTerm;
 import java.util.Properties;
-import javax.mail.Folder;
-import javax.mail.Message;
-import javax.mail.Session;
-import javax.mail.Store;
-import javax.mail.search.SubjectTerm;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jsoup.Jsoup;
@@ -15,7 +15,7 @@ import org.jsoup.Jsoup;
  * @author Rafael
  * @version 1.0
  * @created 30/09/2024
- * @updated 30/09/2024
+ * @updated 12/01/2025
  */
 public class MailChecker {
     protected static final Logger log = LogManager.getLogger(MailChecker.class);

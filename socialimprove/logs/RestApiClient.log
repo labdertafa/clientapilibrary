@@ -1,14 +1,77 @@
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2024-10-18 at 22:29:55 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2024-10-18 at 22:29:56 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2024-10-18 at 22:29:56 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-01-12 at 13:46:31 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:46:31 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-01-12 at 13:46:31 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-01-12 at 13:46:31 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-01-12 at 13:46:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:46:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:46:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:46:32 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:46:42 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:46:42 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-01-12 at 13:46:42 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-01-12 at 13:46:42 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-01-12 at 13:47:12 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-01-12 at 13:47:12 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-01-12 at 13:47:13 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: Cannot invoke "java.util.List.iterator()" because "cookiesHeader" is null
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:49:58 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:50:08 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:08 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:08 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:08 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 520 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 520 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 520 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-01-12 at 13:50:35 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:50:36 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Server returned HTTP response code: 521 for URL: https://fakestoreapi.com/products/1
+2025-01-12 at 13:55:07 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Respuesta del error 308:. Detalle: 
+2025-01-12 at 13:55:07 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: http://fakestoreapi.com/products
+2025-01-12 at 13:55:07 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: Respuesta del error 308:. Detalle: 
+2025-01-12 at 13:55:07 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: Respuesta del error 308:. Detalle: 
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:56:03 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:56:14 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:56:14 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-01-12 at 13:56:14 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-01-12 at 13:56:14 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-01-12 at 13:56:44 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-01-12 at 13:56:44 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:57:43 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-01-12 at 13:57:54 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-01-12 at 13:57:54 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-01-12 at 13:57:54 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-01-12 at 13:57:54 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-01-12 at 13:58:24 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-01-12 at 13:58:24 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)

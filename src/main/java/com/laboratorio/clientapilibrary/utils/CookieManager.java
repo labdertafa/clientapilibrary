@@ -26,7 +26,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 01/09/2024
- * @updated 18/10/2024
+ * @updated 12/01/2025
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -40,6 +40,9 @@ public class CookieManager {
     
     public static List<SerializableCookie> parseCookies(List<String> cookiesHeader) {
         List<SerializableCookie> cookies = new ArrayList<>();
+        if (cookiesHeader == null) {
+            return cookies;
+        }
 
         for (String cookieHeader : cookiesHeader) {
             String[] cookieParts = cookieHeader.split(";");
