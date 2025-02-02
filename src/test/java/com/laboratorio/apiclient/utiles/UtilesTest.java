@@ -1,11 +1,15 @@
 package com.laboratorio.apiclient.utiles;
 
+import com.laboratorio.clientapilibrary.utils.ClientApiConfig;
 import com.laboratorio.clientapilibrary.utils.ElementoPost;
 import com.laboratorio.clientapilibrary.utils.ImageMetadata;
+import com.laboratorio.clientapilibrary.utils.MailChecker;
 import com.laboratorio.clientapilibrary.utils.PostUtils;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,9 +18,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Rafael
  * @version 1.0
  * @created 07/09/2024
- * @updated 04/10/2024
+ * @updated 02/02/2025
  */
 public class UtilesTest {
+    private static final Logger log = LogManager.getLogger(UtilesTest.class);
+    
     @Test
     public void extraerElementosPost() {
         String texto = "Creando una publicación de prueba desde postman y con el link:\n\nhttps://laboratoriorafa.mooo.com/\n\na ver que tal #siguemeytesigo #Followback\n\ny un pedazo\nal final.";
@@ -62,6 +68,7 @@ public class UtilesTest {
         int height  =405;
         
         ImageMetadata imageMetadata = PostUtils.extractImageMetadata(filePath);
+        log.info("Image metadata: {}", imageMetadata.toString());
         
         assertEquals(width, imageMetadata.getWidth());
         assertEquals(height, imageMetadata.getHeight());
@@ -92,5 +99,18 @@ public class UtilesTest {
         PostUtils.downloadImage(image, destination);
         
         assertTrue(true);
+    }
+    
+    @Test
+    public void getFirtMailByTitle(){
+        ClientApiConfig config = ClientApiConfig.getInstance();
+        
+        String username = config.getProperty("parler_user_email");
+        String password = config.getProperty("parler_email_password");
+        String title = config.getProperty("parler_email_title");
+        
+        String email = MailChecker.getFirtMailByTitle(username, password, title);
+        
+        assertNotNull(email);
     }
 }
