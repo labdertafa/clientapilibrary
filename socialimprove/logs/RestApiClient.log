@@ -17,3 +17,33 @@
 2025-02-02 at 09:58:22 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
 2025-02-02 at 09:58:23 CET INFO  com.laboratorio.apiclient.utiles.UtilesTest - Image metadata: ImageMetadata{width=583, height=405, mimeType=image/jpeg, size=116427}
 2025-02-02 at 09:58:26 CET INFO  com.laboratorio.clientapilibrary.utils.MailChecker - Correo encontrado con fecha: Sat Feb 01 20:01:09 CET 2025
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:14:36 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-02-02 at 17:14:37 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-02-02 at 17:14:38 CET INFO  com.laboratorio.apiclient.utiles.UtilesTest - Image metadata: ImageMetadata{width=583, height=405, mimeType=image/jpeg, size=116427}
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-02-02 at 17:15:32 CET ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-02-02 at 17:15:33 CET INFO  com.laboratorio.apiclient.utiles.UtilesTest - Image metadata: ImageMetadata{width=583, height=405, mimeType=image/jpeg, size=116427}

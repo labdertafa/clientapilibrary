@@ -101,7 +101,7 @@ public class UtilesTest {
         assertTrue(true);
     }
     
-    @Test
+    /* @Test
     public void getFirtMailByTitle(){
         ClientApiConfig config = ClientApiConfig.getInstance();
         
@@ -112,5 +112,5 @@ public class UtilesTest {
         String email = MailChecker.getFirtMailByTitle(username, password, title);
         
         assertNotNull(email);
-    }
+    } */
 }

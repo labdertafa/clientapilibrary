@@ -31,9 +31,9 @@ import org.apache.logging.log4j.Logger;
 /**
  *
  * @author Rafael
- * @version 2.0
+ * @version 2.1
  * @created 06/09/2024
- * @updated 06/10/2024
+ * @updated 02/02/2025
  */
 public class ApiClient {
 
@@ -61,7 +61,7 @@ public class ApiClient {
     }
 
     // Procesar la respuesta HTTP
-    private String processResponse(String contentEncoding, byte[] responseBytes) throws IOException {
+    private byte[] processResponse(String contentEncoding, byte[] responseBytes) throws IOException {
         InputStream inputStream = null;
 
         try {
@@ -69,14 +69,17 @@ public class ApiClient {
             if ("br".equalsIgnoreCase(contentEncoding)) {
                 inputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes));
                 byte[] decompressedBytes = inputStream.readAllBytes();
-                return new String(decompressedBytes, StandardCharsets.UTF_8);
+                // return new String(decompressedBytes, StandardCharsets.UTF_8);
+                return decompressedBytes;
             } else {
                 if ("gzip".equalsIgnoreCase(contentEncoding)) {
                     inputStream = new GZIPInputStream(new ByteArrayInputStream(responseBytes));
                     byte[] decompressedBytes = inputStream.readAllBytes();
-                    return new String(decompressedBytes, StandardCharsets.UTF_8);
+                    // return new String(decompressedBytes, StandardCharsets.UTF_8);
+                    return decompressedBytes;
                 } else {
-                    return new String(responseBytes, StandardCharsets.UTF_8);
+                    // return new String(responseBytes, StandardCharsets.UTF_8);
+                    return responseBytes;
                 }
             }
         } catch (IOException e) {
@@ -117,7 +120,7 @@ public class ApiClient {
         }
     }
 
-    private String getHttpResponse(HttpURLConnection httpConn) throws IOException {
+    private byte[] getHttpResponse(HttpURLConnection httpConn) throws IOException {
         InputStream inputStream = null;
 
         // Se procesa la respuesta
@@ -125,7 +128,7 @@ public class ApiClient {
             String contentEncoding = httpConn.getHeaderField("Content-Encoding");
             inputStream = httpConn.getInputStream();
             if (inputStream == null) {
-                return "";
+                return null;
             }
             byte[] responseBytes = readInputStreamAsBytes(inputStream);
 
@@ -194,7 +197,11 @@ public class ApiClient {
             int responseCode = httpConn.getResponseCode();
 
             // Se procesa la respuesta
-            String responseStr = this.getHttpResponse(httpConn);
+            byte[] responseByte = this.getHttpResponse(httpConn);
+            String responseStr = "";
+            if (responseByte != null) {
+                responseStr = new String(responseByte, StandardCharsets.UTF_8);
+            }
 
             if (responseCode != request.getOkResponse()) {
                 String str = String.format("Respuesta del error %d:. Detalle: ", responseCode, responseStr);
@@ -208,7 +215,7 @@ public class ApiClient {
             
             this.processResponseCookies(httpConn);
 
-            return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr);
+            return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr, responseByte);
         } catch (Exception e) {
             log.error("Error ejecutando la solicitud: " + uri);
             logException(e);
