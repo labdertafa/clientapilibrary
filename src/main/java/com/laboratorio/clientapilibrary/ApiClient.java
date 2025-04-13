@@ -33,7 +33,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.1
  * @created 06/09/2024
- * @updated 02/02/2025
+ * @updated 13/04/2025
  */
 public class ApiClient {
 
@@ -157,15 +157,19 @@ public class ApiClient {
 
     public ApiResponse executeApiRequest(ApiRequest request) {
         HttpURLConnection httpConn = null;
-        String uri = request.getUri() + request.getQueryParams();
+        String fullUri = request.getUri() + request.getQueryParams();
 
         try {
-            URL url = new URL(request.getUri() + request.getQueryParams());
+            URL url = new URL(fullUri);
             httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setUseCaches(false);
             httpConn.setDoOutput(true); // habilita salida
             httpConn.setDoInput(true);  // habilita entrada
             httpConn.setRequestMethod(request.getMethod().name());
+            httpConn.setConnectTimeout(4000); // 4000 milisegundos (ajustable)
+            httpConn.setReadTimeout(8000);   // 8000 milisegundos (ajustable)
+            
+            httpConn.setRequestProperty("Connection", "close");
 
             // Se agregan las cabeceras a la petición
             for (ApiElement element : request.getElements()) {
@@ -176,8 +180,9 @@ public class ApiClient {
             }
 
             // Se agregan las cookies a la petición
-            for (String cookie : request.getCookies()) {
-                httpConn.setRequestProperty("Cookie", cookie);
+            if (!request.getCookies().isEmpty()) {
+                String cookiesCombined = String.join("; ", request.getCookies());
+                httpConn.setRequestProperty("Cookie", cookiesCombined);
             }
 
             // Se contruye el body de la petición
@@ -209,7 +214,7 @@ public class ApiClient {
             }
 
             // Se procesa la respuesta
-            log.debug("Se ejecutó la solicitud: " + uri);
+            log.debug("Se ejecutó la solicitud: " + fullUri);
             log.debug("Response Code de la solicitud: " + responseCode);
             log.debug("Respuesta recibida: " + responseStr);
             
@@ -217,7 +222,7 @@ public class ApiClient {
 
             return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr, responseByte);
         } catch (Exception e) {
-            log.error("Error ejecutando la solicitud: " + uri);
+            log.error("Error ejecutando la solicitud: " + fullUri, e);
             logException(e);
             throw new ApiClientException(ApiClient.class.getName(), e.getMessage());
         } finally {
@@ -242,6 +247,7 @@ public class ApiClient {
             httpConn.setRequestProperty("Content-Length", String.valueOf(input.length));
             os = httpConn.getOutputStream();
             os.write(input, 0, input.length);
+            os.flush();
         } catch (IOException e) {
             log.error("Error enviando el cuerpo de la solicitud: " + request.getUri());
             throw e;
@@ -375,6 +381,7 @@ public class ApiClient {
             try (OutputStream requestStream = httpConn.getOutputStream()) {
                 multipart.writeTo(requestStream);
             }
+            multipart.flush();
         } catch (Exception e) {
             log.error("Se ha producido un error procesando un formulario multi-partes");
             logException(e);

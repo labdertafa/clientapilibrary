@@ -1,7 +1,9 @@
 package com.laboratorio.clientapilibrary.utils;
 
+import jakarta.mail.Authenticator;
 import jakarta.mail.Folder;
 import jakarta.mail.Message;
+import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
 import jakarta.mail.Store;
 import jakarta.mail.search.SubjectTerm;
@@ -13,9 +15,9 @@ import org.jsoup.Jsoup;
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 1.1
  * @created 30/09/2024
- * @updated 12/01/2025
+ * @updated 05/03/2025
  */
 public class MailChecker {
     protected static final Logger log = LogManager.getLogger(MailChecker.class);
@@ -30,21 +32,37 @@ public class MailChecker {
         }
     }
     
-    public static String getFirtMailByTitle(String username, String password, String title) {
-        // Configuración de propiedades para conectar a Gmail
+    public static String getFirtMailByTitle(String email, String password, String title) {
+        if (email.toLowerCase().contains("outlook")) {
+            return getFirtMailByTitle("imap-mail.outlook.com", email, password, title);
+        }
+        
+        return getFirtMailByTitle("imap.gmail.com", email, password, title);
+    }
+    
+    private static String getFirtMailByTitle(String hostname, String email, String password, String title) {
         Properties props = new Properties();
         props.put("mail.store.protocol", "imaps");
-        props.put("mail.imaps.host", "imap.gmail.com");
+        props.put("mail.imaps.host", hostname);
         props.put("mail.imaps.port", "993");
+        props.put("mail.imaps.auth", "true");
         props.put("mail.imaps.ssl.enable", "true");
         
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(email, password);
+            }
+        });
+        session.setDebug(false); 
+        
         try {
-            // Crear una sesión de correo con autenticación
-            Session session = Session.getInstance(props, null);
+            // Session session = Session.getInstance(props, null);
 
-            // Conectar al servidor de Gmail usando IMAP
-            Store store = session.getStore();
-            store.connect("imap.gmail.com", username, password);
+            // Conectar al servidor de correo usando IMAP
+            Store store = session.getStore("imaps");
+            // store.connect(hostname, email, password);
+            store.connect();
 
             // Abrir la carpeta de "INBOX"
             Folder inbox = store.getFolder("INBOX");
