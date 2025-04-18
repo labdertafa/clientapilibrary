@@ -22,11 +22,15 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.Security;
 import java.util.List;
 import java.util.UUID;
 import java.util.zip.GZIPInputStream;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.conscrypt.Conscrypt;
 
 /**
  *
@@ -156,10 +160,19 @@ public class ApiClient {
     }
 
     public ApiResponse executeApiRequest(ApiRequest request) {
-        HttpURLConnection httpConn = null;
         String fullUri = request.getUri() + request.getQueryParams();
-
+        HttpURLConnection httpConn = null;
+        
         try {
+            // 1. Registrar Conscrypt para emular un navegador
+            Security.insertProviderAt(Conscrypt.newProvider(), 1);
+
+            // 2. Configurar SSLContext
+            SSLContext ctx = SSLContext.getInstance("TLS");
+            ctx.init(null, null, null);
+            HttpsURLConnection.setDefaultSSLSocketFactory(ctx.getSocketFactory());
+        
+            // 3. Iniciar la conexión
             URL url = new URL(fullUri);
             httpConn = (HttpURLConnection) url.openConnection();
             httpConn.setUseCaches(false);
