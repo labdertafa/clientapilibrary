@@ -1,4 +1,4 @@
-2025-04-18 at 17:18:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products java.io.FileNotFoundException: https://fakestoreapi.com/products
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products java.io.FileNotFoundException: https://fakestoreapi.com/products
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
@@ -93,10 +93,10 @@ Caused by: java.io.FileNotFoundException: https://fakestoreapi.com/products
 	at com.laboratorio.clientapilibrary.ApiClient.executeApiRequest(ApiClient.java:215) ~[classes/:?]
 	... 74 more
 
-2025-04-18 at 17:18:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
-2025-04-18 at 17:18:34 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
-2025-04-18 at 17:18:34 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf java.io.FileNotFoundException: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf java.io.FileNotFoundException: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
@@ -191,10 +191,10 @@ Caused by: java.io.FileNotFoundException: https://api.gettr.com/s/uinf/3423423la
 	at com.laboratorio.clientapilibrary.ApiClient.executeApiRequest(ApiClient.java:215) ~[classes/:?]
 	... 74 more
 
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1 java.io.FileNotFoundException: https://fakestoreapi.com/products/1
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://api.gettr.com/s/uinf/3423423labrafa/fasdsf
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error ejecutando la solicitud: https://fakestoreapi.com/products/1 java.io.FileNotFoundException: https://fakestoreapi.com/products/1
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
@@ -289,9 +289,9 @@ Caused by: java.io.FileNotFoundException: https://fakestoreapi.com/products/1
 	at com.laboratorio.clientapilibrary.ApiClient.executeApiRequest(ApiClient.java:215) ~[classes/:?]
 	... 74 more
 
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
-2025-04-18 at 17:18:35 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
-2025-04-18 at 17:18:36 CEST INFO  com.laboratorio.apiclient.utiles.UtilesTest - Image metadata: ImageMetadata{width=583, height=405, mimeType=image/jpeg, size=116427}
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Error: https://fakestoreapi.com/products/1
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.ApiClient - Causa: https://fakestoreapi.com/products/1
+2025-04-25 at 16:45:12 CEST ERROR com.laboratorio.clientapilibrary.exceptions.ApiClientException - Error com.laboratorio.clientapilibrary.ApiClient: https://fakestoreapi.com/products/1
+2025-04-25 at 16:45:13 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Problemas al recuperar las cookies del website. Se cargará un conjunto vacío.
+2025-04-25 at 16:45:13 CEST ERROR com.laboratorio.clientapilibrary.utils.CookieManager - Error: temp\cookies.ser (El sistema no puede encontrar la ruta especificada)
+2025-04-25 at 16:45:14 CEST INFO  com.laboratorio.apiclient.utiles.UtilesTest - Image metadata: ImageMetadata{width=583, height=405, mimeType=image/jpeg, size=116427}
