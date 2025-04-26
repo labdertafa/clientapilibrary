@@ -180,7 +180,7 @@ public class ApiClient {
             httpConn.setDoInput(true);  // habilita entrada
             httpConn.setRequestMethod(request.getMethod().name());
             httpConn.setConnectTimeout(10000); // 10000 milisegundos (ajustable)
-            httpConn.setReadTimeout(120000);   // 120000 milisegundos (ajustable)
+            httpConn.setReadTimeout(300000);   // 300000 milisegundos (ajustable)
             
             httpConn.setRequestProperty("Connection", "close");
 

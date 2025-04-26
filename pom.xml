@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.laboratorio</groupId>
     <artifactId>clientapilibrary</artifactId>
-    <version>2.0.27</version>
+    <version>2.0.28</version>
     <packaging>jar</packaging>
     <name>Client-Api-Library</name>
     <description>Libreria client api usando las librerías de base del lenguaje Java</description>
@@ -42,20 +42,20 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.34</version>
+            <version>1.18.38</version>
             <scope>provided</scope>
         </dependency>
         
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.23.1</version>
+            <version>2.24.3</version>
         </dependency>
         
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.23.1</version>
+            <version>2.24.3</version>
         </dependency>
         
         <!-- JSoup: Biblioteca para parsear HTML -->
