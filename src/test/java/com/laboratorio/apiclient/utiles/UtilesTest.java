@@ -1,6 +1,6 @@
 package com.laboratorio.apiclient.utiles;
 
-import com.laboratorio.clientapilibrary.utils.ClientApiConfig;
+import com.laboratorio.clientapilibrary.utils.ReaderConfig;
 import com.laboratorio.clientapilibrary.utils.ElementoPost;
 import com.laboratorio.clientapilibrary.utils.ImageMetadata;
 import com.laboratorio.clientapilibrary.utils.MailChecker;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author Rafael
  * @version 1.0
  * @created 07/09/2024
- * @updated 02/02/2025
+ * @updated 04/05/2025
  */
 public class UtilesTest {
     private static final Logger log = LogManager.getLogger(UtilesTest.class);
@@ -103,7 +103,7 @@ public class UtilesTest {
     
 /*    @Test
     public void getFirtMailByTitle(){
-        ClientApiConfig config = ClientApiConfig.getInstance();
+        ReaderConfig config = new ReaderConfig("config//apiclientconfig.properties");
         
         String username = config.getProperty("parler_user_email");
         String password = config.getProperty("parler_email_password");

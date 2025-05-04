@@ -37,7 +37,7 @@ import org.conscrypt.Conscrypt;
  * @author Rafael
  * @version 2.1
  * @created 06/09/2024
- * @updated 13/04/2025
+ * @updated 04/05/2025
  */
 public class ApiClient {
 
@@ -73,16 +73,13 @@ public class ApiClient {
             if ("br".equalsIgnoreCase(contentEncoding)) {
                 inputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes));
                 byte[] decompressedBytes = inputStream.readAllBytes();
-                // return new String(decompressedBytes, StandardCharsets.UTF_8);
                 return decompressedBytes;
             } else {
                 if ("gzip".equalsIgnoreCase(contentEncoding)) {
                     inputStream = new GZIPInputStream(new ByteArrayInputStream(responseBytes));
                     byte[] decompressedBytes = inputStream.readAllBytes();
-                    // return new String(decompressedBytes, StandardCharsets.UTF_8);
                     return decompressedBytes;
                 } else {
-                    // return new String(responseBytes, StandardCharsets.UTF_8);
                     return responseBytes;
                 }
             }
@@ -94,7 +91,7 @@ public class ApiClient {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 log.warn("Error liberando los recursos: " + e.getMessage());
             }
         }
@@ -118,7 +115,7 @@ public class ApiClient {
                 if (byteArrayOutputStream != null) {
                     byteArrayOutputStream.close();
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 log.warn("Error liberando los recursos: " + e.getMessage());
             }
         }
@@ -144,7 +141,7 @@ public class ApiClient {
                 if (inputStream != null) {
                     inputStream.close();
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 log.warn("Error liberando los recursos: " + e.getMessage());
             }
         }
@@ -269,7 +266,7 @@ public class ApiClient {
                 if (os != null) {
                     os.close();
                 }
-            } catch (Exception e) {
+            } catch (IOException e) {
                 log.warn("Error liberando los recursos: " + e.getMessage());
             }
         }
@@ -395,7 +392,7 @@ public class ApiClient {
                 multipart.writeTo(requestStream);
             }
             multipart.flush();
-        } catch (Exception e) {
+        } catch (IOException e) {
             log.error("Se ha producido un error procesando un formulario multi-partes");
             logException(e);
             throw new ApiClientException(ApiClient.class.getName(), e.getMessage());
