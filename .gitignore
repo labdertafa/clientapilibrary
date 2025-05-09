@@ -1,3 +1,4 @@
 /target/
-/socialimprove/
-/config/
+/clientapilibrary-core/socialimprove/
+/clientapilibrary-core/config/
+/clientapilibrary-core/target/
