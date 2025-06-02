@@ -34,7 +34,7 @@ import org.jsoup.nodes.Element;
  * @author Rafael
  * @version 1.0
  * @created 07/09/2024
- * @updated 04/10/2024
+ * @updated 02/05/2025
  */
 public class PostUtils {
     private static final Logger log = LogManager.getLogger(PostUtils.class);
@@ -176,7 +176,6 @@ public class PostUtils {
                 log.error("Error en la descarga. Código de respuesta: " + responseCode);
             }
         } catch (IOException e) {
-            log.error("Error descargando imagen: " + e.getMessage());
             logException(e);
         } finally {
             if (fileOutputStream != null) {
@@ -204,7 +203,8 @@ public class PostUtils {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
+            log.error("Error extrayendo la imagen de la url incluida en el post");
             return null;
         }
 
@@ -232,7 +232,7 @@ public class PostUtils {
             return Base64.getEncoder().encodeToString(md5Bytes);
 
         } catch (NoSuchAlgorithmException | IOException e) {
-            throw new UtilsApiException(PostUtils.class.getName(), "Error al calcular el checksum MD5 del archivo " + filePath, e);
+            throw new UtilsApiException("Error al calcular el checksum MD5 del archivo " + filePath, e);
         }
     }
 
@@ -282,7 +282,7 @@ public class PostUtils {
 
             return imageMetadata;
         } catch (Exception e) {
-            throw new UtilsApiException(PostUtils.class.getName(), "Error al extraer la metadata de la imagen " + filePath, e);
+            throw new UtilsApiException("Error al extraer la metadata de la imagen " + filePath, e);
         }
     }
 }

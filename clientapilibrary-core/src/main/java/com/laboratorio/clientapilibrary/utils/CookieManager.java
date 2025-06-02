@@ -1,6 +1,7 @@
 package com.laboratorio.clientapilibrary.utils;
 
 import com.laboratorio.clientapilibrary.ApiClient;
+import com.laboratorio.clientapilibrary.exceptions.UtilsApiException;
 import com.laboratorio.clientapilibrary.model.ApiMethodType;
 import com.laboratorio.clientapilibrary.model.ApiRequest;
 import com.laboratorio.clientapilibrary.model.ApiResponse;
@@ -26,7 +27,7 @@ import org.apache.logging.log4j.Logger;
  * @author Rafael
  * @version 2.0
  * @created 01/09/2024
- * @updated 12/01/2025
+ * @updated 02/05/2025
  */
 public class CookieManager {
     protected static final Logger log = LogManager.getLogger(CookieManager.class);
@@ -172,8 +173,7 @@ public class CookieManager {
 
             return extractCookiesInformation(parseCookies(response.getCookies()));
         } catch (Exception e) {
-            logException(e);
-            throw e;
+            throw new UtilsApiException("Error extrayendo las cookies del website" + uri, e);
         }
     }
 }

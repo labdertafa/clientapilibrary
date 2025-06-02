@@ -1,20 +1,29 @@
 package com.laboratorio.clientapilibrary.exceptions;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 1.1
  * @created 10/07/2024
- * @updated 05/09/2024
+ * @updated 02/05/2025
  */
 public class ApiClientException extends RuntimeException {
-    private static final Logger log = LogManager.getLogger(ApiClientException.class);
+    private Throwable causaOriginal = null;
     
-    public ApiClientException(String className, String message) {
+    public ApiClientException(String message, Throwable causaOriginal) {
+        super(message, causaOriginal);
+        this.causaOriginal = causaOriginal;
+    }
+
+    public ApiClientException(String message) {
         super(message);
-        log.error(String.format("Error %s: %s", className, message));
+    }
+    
+    public String gerMessage() {
+        if (this.causaOriginal != null) {
+            return super.getMessage() + " | Causa original: " + this.causaOriginal.getMessage();
+        }
+        
+        return super.getMessage();
     }
 }

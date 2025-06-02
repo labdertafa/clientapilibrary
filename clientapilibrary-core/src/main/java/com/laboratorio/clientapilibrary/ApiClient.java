@@ -37,7 +37,7 @@ import org.conscrypt.Conscrypt;
  * @author Rafael
  * @version 2.1
  * @created 06/09/2024
- * @updated 04/05/2025
+ * @updated 02/05/2025
  */
 public class ApiClient {
 
@@ -52,16 +52,6 @@ public class ApiClient {
     public ApiClient(String cookiesFilePath) {
         Brotli4jLoader.ensureAvailability();
         this.cookiesFilePath = cookiesFilePath;
-    }
-
-    private void logException(Exception e) {
-        log.error("Error: " + e.getMessage());
-        if (e.getCause() != null) {
-            log.error("Causa: " + e.getCause().getMessage());
-            if (e.getCause().getCause() != null) {
-                log.error("Causa: " + e.getCause().getCause().getMessage());
-            }
-        }
     }
 
     // Procesar la respuesta HTTP
@@ -220,7 +210,7 @@ public class ApiClient {
 
             if (responseCode != request.getOkResponse()) {
                 String str = String.format("Respuesta del error %d:. Detalle: ", responseCode, responseStr);
-                throw new ApiClientException(ApiClient.class.getName(), str);
+                throw new ApiClientException(str);
             }
 
             // Se procesa la respuesta
@@ -232,9 +222,7 @@ public class ApiClient {
 
             return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr, responseByte);
         } catch (Exception e) {
-            log.error("Error ejecutando la solicitud: " + fullUri, e);
-            logException(e);
-            throw new ApiClientException(ApiClient.class.getName(), e.getMessage());
+            throw new ApiClientException("Error ejecutando la solicitud: " + fullUri, e);
         } finally {
             try {
                 if (httpConn != null) {
@@ -341,7 +329,7 @@ public class ApiClient {
         return builder.toString();
     }
 
-    public void processMultipartFormBody(HttpURLConnection httpConn, ApiRequest request) {
+    public void processMultipartFormBody(HttpURLConnection httpConn, ApiRequest request) throws IOException {
         // Generar un boundary único
         String boundary = "----WebKitFormBoundary" + UUID.randomUUID().toString();
         String contentType = "multipart/form-data; boundary=" + boundary;
@@ -394,8 +382,7 @@ public class ApiClient {
             multipart.flush();
         } catch (IOException e) {
             log.error("Se ha producido un error procesando un formulario multi-partes");
-            logException(e);
-            throw new ApiClientException(ApiClient.class.getName(), e.getMessage());
+            throw e;
         }
     }
 }
