@@ -37,7 +37,7 @@ import org.conscrypt.Conscrypt;
  * @author Rafael
  * @version 2.1
  * @created 06/09/2024
- * @updated 02/05/2025
+ * @updated 04/06/2025
  */
 public class ApiClient {
 
@@ -221,6 +221,8 @@ public class ApiClient {
             this.processResponseCookies(httpConn);
 
             return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr, responseByte);
+        } catch (ApiClientException e) {
+            throw e;
         } catch (Exception e) {
             throw new ApiClientException("Error ejecutando la solicitud: " + fullUri, e);
         } finally {

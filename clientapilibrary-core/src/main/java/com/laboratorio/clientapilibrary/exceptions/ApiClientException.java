@@ -19,7 +19,8 @@ public class ApiClientException extends RuntimeException {
         super(message);
     }
     
-    public String gerMessage() {
+    @Override
+    public String getMessage() {
         if (this.causaOriginal != null) {
             return super.getMessage() + " | Causa original: " + this.causaOriginal.getMessage();
         }
