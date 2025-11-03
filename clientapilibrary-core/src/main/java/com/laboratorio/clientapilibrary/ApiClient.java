@@ -11,23 +11,37 @@ import com.laboratorio.clientapilibrary.model.ApiValueType;
 import com.laboratorio.clientapilibrary.utils.CookieManager;
 import com.laboratorio.clientapilibrary.utils.ImageMetadata;
 import com.laboratorio.clientapilibrary.utils.PostUtils;
+import com.laboratorio.clientapilibrary.utils.ReaderConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.MalformedURLException;
+import java.net.Proxy;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
 import java.security.Security;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.util.List;
 import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.conscrypt.Conscrypt;
@@ -35,14 +49,18 @@ import org.conscrypt.Conscrypt;
 /**
  *
  * @author Rafael
- * @version 2.1
+ * @version 2.2
  * @created 06/09/2024
- * @updated 04/06/2025
+ * @updated 03/11/2025
  */
 public class ApiClient {
 
     private static final Logger log = LogManager.getLogger(ApiClient.class);
-    private final String LINE_FEED = "\r\n";
+    
+    private static final String LINE_FEED = "\r\n";
+    private static final String CONTENT_LENGTH = "Content-Length";
+    private static final String ERROR_LIBERANDO = "Error liberando los recursos: %s";
+    
     private String cookiesFilePath;
 
     public ApiClient() {
@@ -56,84 +74,39 @@ public class ApiClient {
 
     // Procesar la respuesta HTTP
     private byte[] processResponse(String contentEncoding, byte[] responseBytes) throws IOException {
-        InputStream inputStream = null;
-
-        try {
-            // Si la respuesta está codificada como Brotli (br)
-            if ("br".equalsIgnoreCase(contentEncoding)) {
-                inputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes));
-                byte[] decompressedBytes = inputStream.readAllBytes();
-                return decompressedBytes;
-            } else {
-                if ("gzip".equalsIgnoreCase(contentEncoding)) {
-                    inputStream = new GZIPInputStream(new ByteArrayInputStream(responseBytes));
-                    byte[] decompressedBytes = inputStream.readAllBytes();
-                    return decompressedBytes;
-                } else {
-                    return responseBytes;
-                }
+        // Si la respuesta está codificada como Brotli (br)
+        if ("br".equalsIgnoreCase(contentEncoding)) {
+            try (InputStream inputStream = new BrotliInputStream(new ByteArrayInputStream(responseBytes))) {
+                return inputStream.readAllBytes();
             }
-        } catch (IOException e) {
-            log.error("Error procesando la respuesta recibida para la solicitud");
-            throw e;
-        } finally {
-            try {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            } catch (IOException e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
+        } else {
+            if ("gzip".equalsIgnoreCase(contentEncoding)) {
+                try (InputStream inputStream = new GZIPInputStream(new ByteArrayInputStream(responseBytes))) {
+                    return inputStream.readAllBytes();
+                }   
+            } else {
+                return responseBytes;
             }
         }
     }
 
     private byte[] readInputStreamAsBytes(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = null;
-
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
+        try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[4096];
             int bytesRead;
             while ((bytesRead = inputStream.read(buffer)) != -1) {
                 byteArrayOutputStream.write(buffer, 0, bytesRead);
             }
             return byteArrayOutputStream.toByteArray();
-        } catch (IOException e) {
-            throw e;
-        } finally {
-            try {
-                if (byteArrayOutputStream != null) {
-                    byteArrayOutputStream.close();
-                }
-            } catch (IOException e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
-            }
         }
     }
 
     private byte[] getHttpResponse(HttpURLConnection httpConn) throws IOException {
-        InputStream inputStream = null;
-
         // Se procesa la respuesta
-        try {
-            String contentEncoding = httpConn.getHeaderField("Content-Encoding");
-            inputStream = httpConn.getInputStream();
-            if (inputStream == null) {
-                return null;
-            }
+        String contentEncoding = httpConn.getHeaderField("Content-Encoding");
+        try (InputStream inputStream = httpConn.getInputStream()) {
             byte[] responseBytes = readInputStreamAsBytes(inputStream);
-
             return processResponse(contentEncoding, responseBytes);
-        } catch (IOException e) {
-            throw e;
-        } finally {
-            try {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            } catch (IOException e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
-            }
         }
     }
 
@@ -143,6 +116,89 @@ public class ApiClient {
         // Almacena las cookies de la respuesta si es necesario
         if ((this.cookiesFilePath != null) && (cookiesHeader != null)) {
             CookieManager.saveCookies(this.cookiesFilePath, cookiesHeader);
+        }
+    }
+    
+    private HttpURLConnection crearConexionHTTP(String uri, ApiRequest request) throws IOException {
+        HttpURLConnection httpConn;
+        
+        URL url = new URL(uri);
+        // Se verifica que la llamada no sea para Gab
+        if (uri.contains("gab.com")) {
+            ReaderConfig config = new ReaderConfig("config//apiclientconfig.properties");
+            String proxyDNS = config.getProperty("gab_proxy_dns");
+            int proxyPort = Integer.parseInt(config.getProperty("gab_proxy_port"));
+            Proxy gabProxy = new Proxy(
+                    Proxy.Type.HTTP,
+                    new InetSocketAddress(proxyDNS, proxyPort)
+            );
+            httpConn = (HttpURLConnection) url.openConnection(gabProxy);
+        } else {
+            httpConn = (HttpURLConnection) url.openConnection();
+        }
+        httpConn.setUseCaches(false);
+        httpConn.setDoOutput(true); // habilita salida
+        httpConn.setDoInput(true);  // habilita entrada
+        httpConn.setRequestMethod(request.getMethod().name());
+        httpConn.setConnectTimeout(10000); // 10000 milisegundos (ajustable)
+        httpConn.setReadTimeout(300000);   // 300000 milisegundos (ajustable)
+
+        httpConn.setRequestProperty("Connection", "close");
+        
+        return httpConn;
+    }
+    
+    private void configurarSSLContext(String uri) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, KeyManagementException {
+        TrustManager[] managers = null;
+        
+        if (uri.contains("gab.com")) {
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            ReaderConfig config = new ReaderConfig("config//apiclientconfig.properties");
+            String certificatePath = config.getProperty("gab_proxy_certificate");
+            FileInputStream fis = new FileInputStream(certificatePath);
+            Certificate ca = cf.generateCertificate(fis);
+
+            KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+            ks.load(null, null);
+            ks.setCertificateEntry("httptoolkit", ca);
+
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(ks);
+            managers = tmf.getTrustManagers();
+        }
+        
+        SSLContext sslContext = SSLContext.getInstance("TLS");
+        sslContext.init(null, managers, null);
+        
+        HttpsURLConnection.setDefaultSSLSocketFactory(sslContext.getSocketFactory());
+    }
+    
+    private void construirPeticion(HttpURLConnection httpConn, ApiRequest request) throws IOException {
+        // Se agregan las cabeceras a la petición
+        for (ApiElement element : request.getElements()) {
+            if (element.getType() == ApiElementType.HEADER) {
+                httpConn.setRequestProperty(element.getName(), element.getValue());
+                log.debug("{}: {}", element.getName(), element.getValue());
+            }
+        }
+
+        // Se agregan las cookies a la petición
+        if (!request.getCookies().isEmpty()) {
+            String cookiesCombined = String.join("; ", request.getCookies());
+            httpConn.setRequestProperty("Cookie", cookiesCombined);
+        }
+
+        // Se contruye el body de la petición
+        if (request.getPayload() != null) {         // El cuerpo es un JSON
+            this.processJsonBody(httpConn, request);
+        } else {
+            if (request.getBinaryFile() != null) {  // El cuerpo es un fichero binario
+                this.processBinaryBody(httpConn, request);
+            } else {
+                if (request.isFormData()) {         // El cuerpo es un FormData
+                    this.processMultipartFormBody(httpConn, request);
+                }
+            }
         }
     }
 
@@ -155,53 +211,18 @@ public class ApiClient {
             Security.insertProviderAt(Conscrypt.newProvider(), 1);
 
             // 2. Configurar SSLContext
-            SSLContext ctx = SSLContext.getInstance("TLS");
-            ctx.init(null, null, null);
-            HttpsURLConnection.setDefaultSSLSocketFactory(ctx.getSocketFactory());
+            this.configurarSSLContext(fullUri);
         
             // 3. Iniciar la conexión
-            URL url = new URL(fullUri);
-            httpConn = (HttpURLConnection) url.openConnection();
-            httpConn.setUseCaches(false);
-            httpConn.setDoOutput(true); // habilita salida
-            httpConn.setDoInput(true);  // habilita entrada
-            httpConn.setRequestMethod(request.getMethod().name());
-            httpConn.setConnectTimeout(10000); // 10000 milisegundos (ajustable)
-            httpConn.setReadTimeout(300000);   // 300000 milisegundos (ajustable)
+            httpConn = this.crearConexionHTTP(fullUri, request);
             
-            httpConn.setRequestProperty("Connection", "close");
-
-            // Se agregan las cabeceras a la petición
-            for (ApiElement element : request.getElements()) {
-                if (element.getType() == ApiElementType.HEADER) {
-                    httpConn.setRequestProperty(element.getName(), element.getValue());
-                    log.debug(element.getName() + ": " + element.getValue());
-                }
-            }
-
-            // Se agregan las cookies a la petición
-            if (!request.getCookies().isEmpty()) {
-                String cookiesCombined = String.join("; ", request.getCookies());
-                httpConn.setRequestProperty("Cookie", cookiesCombined);
-            }
-
-            // Se contruye el body de la petición
-            if (request.getPayload() != null) {         // El cuerpo es un JSON
-                this.processJsonBody(httpConn, request);
-            } else {
-                if (request.getBinaryFile() != null) {  // El cuerpo es un fichero binario
-                    this.processBinaryBody(httpConn, request);
-                } else {
-                    if (request.isFormData()) {         // El cuerpo es un FormData
-                        this.processMultipartFormBody(httpConn, request);
-                    }
-                }
-            }
-
-            // Se ejecuta la petición
+            // 4. Se construye la petición
+            this.construirPeticion(httpConn, request);
+            
+            // 5. Se ejecuta la petición
             int responseCode = httpConn.getResponseCode();
 
-            // Se procesa la respuesta
+            // 6. Se procesa la respuesta
             byte[] responseByte = this.getHttpResponse(httpConn);
             String responseStr = "";
             if (responseByte != null) {
@@ -209,14 +230,14 @@ public class ApiClient {
             }
 
             if (responseCode != request.getOkResponse()) {
-                String str = String.format("Respuesta del error %d:. Detalle: ", responseCode, responseStr);
+                String str = String.format("Respuesta del error %d:. Detalle: %s", responseCode, responseStr);
                 throw new ApiClientException(str);
             }
 
             // Se procesa la respuesta
-            log.debug("Se ejecutó la solicitud: " + fullUri);
-            log.debug("Response Code de la solicitud: " + responseCode);
-            log.debug("Respuesta recibida: " + responseStr);
+            log.debug("Se ejecutó la solicitud: {}", fullUri);
+            log.debug("Response Code de la solicitud: {}", responseCode);
+            log.debug("Respuesta recibida: {}", responseStr);
             
             this.processResponseCookies(httpConn);
 
@@ -231,7 +252,7 @@ public class ApiClient {
                     httpConn.disconnect();
                 }
             } catch (Exception e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
+                log.warn(String.format(ERROR_LIBERANDO, e.getMessage()));
             }
         }
     }
@@ -244,7 +265,7 @@ public class ApiClient {
         try {
             // Enviar el cuerpo JSON
             byte[] input = request.getPayload().getBytes(StandardCharsets.UTF_8);
-            httpConn.setRequestProperty("Content-Length", String.valueOf(input.length));
+            httpConn.setRequestProperty(CONTENT_LENGTH, String.valueOf(input.length));
             os = httpConn.getOutputStream();
             os.write(input, 0, input.length);
             os.flush();
@@ -257,53 +278,34 @@ public class ApiClient {
                     os.close();
                 }
             } catch (IOException e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
+                log.warn(String.format(ERROR_LIBERANDO, e.getMessage()));
             }
         }
     }
 
     private void processBinaryBody(HttpURLConnection httpConn, ApiRequest request) throws IOException {
-        FileInputStream fileInputStream = null;
-        DataOutputStream outputStream = null;
+        httpConn.setRequestProperty("Connection", "Keep-Alive");
+        log.debug("Connection: Keep-Alive");
+        httpConn.setRequestProperty("Cache-Control", "no-cache");
+        log.debug("Cache-Control: no-cache");
+        httpConn.setRequestProperty(CONTENT_LENGTH, String.valueOf(request.getBinaryFile().length()));
+        log.debug("Content-Length: {}", String.valueOf(request.getBinaryFile().length()));
 
-        try {
-            httpConn.setRequestProperty("Connection", "Keep-Alive");
-            log.debug("Connection: Keep-Alive");
-            httpConn.setRequestProperty("Cache-Control", "no-cache");
-            log.debug("Cache-Control: no-cache");
-            httpConn.setRequestProperty("Content-Length", String.valueOf(request.getBinaryFile().length()));
-            log.debug("Content-Length: " + String.valueOf(request.getBinaryFile().length()));
-
-            // Leemos el archivo binario
-            fileInputStream = new FileInputStream(request.getBinaryFile());
-
+        // Leemos el archivo binario
+        try (FileInputStream fileInputStream = new FileInputStream(request.getBinaryFile())) {
             // Creamos el stream de salida para enviar los datos binarios
-            outputStream = new DataOutputStream(httpConn.getOutputStream());
+            try (DataOutputStream outputStream = new DataOutputStream(httpConn.getOutputStream())) {
+                // Buffer para leer y enviar los bytes
+                byte[] buffer = new byte[4096];
+                int bytesRead;
 
-            // Buffer para leer y enviar los bytes
-            byte[] buffer = new byte[4096];
-            int bytesRead;
-
-            // Escribimos el contenido del archivo en el stream de salida
-            while ((bytesRead = fileInputStream.read(buffer)) != -1) {
-                outputStream.write(buffer, 0, bytesRead);
-            }
-
-            outputStream.flush(); // Asegurarse de que se envíen todos los datos
-        } catch (IOException e) {
-            log.error("Error cargando el fichero de la solicitud: " + request.getUri());
-            throw e;
-        } finally {
-            // Cerrar todos los recursos
-            try {
-                if (fileInputStream != null) {
-                    fileInputStream.close();
+                // Escribimos el contenido del archivo en el stream de salida
+                while ((bytesRead = fileInputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
                 }
-                if (outputStream != null) {
-                    outputStream.close();
-                }
-            } catch (IOException e) {
-                log.warn("Error liberando los recursos: " + e.getMessage());
+                
+                // Asegurarse de que se envíen todos los datos
+                outputStream.flush(); 
             }
         }
     }
@@ -326,7 +328,7 @@ public class ApiClient {
             builder.append(LINE_FEED);
         }
 
-        log.debug("Se agregó un elemento al Formdata: " + builder.toString());
+        log.debug("Se agregó un elemento al Formdata: {}", builder.toString());
 
         return builder.toString();
     }
@@ -338,7 +340,6 @@ public class ApiClient {
 
         // Buffer temporal para calcular el Content-Length
         ByteArrayOutputStream multipart = new ByteArrayOutputStream();
-        // DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
 
         try {
             httpConn.setRequestProperty("Content-Type", contentType);
@@ -353,13 +354,13 @@ public class ApiClient {
                     // Se agrega el valor del elemento
                     if (element.getValueType() == ApiValueType.FILE) {
                         File imageFile = new File(element.getValue());
-                        FileInputStream inputStream = new FileInputStream(imageFile);
-                        byte[] buffer = new byte[4096];
-                        int bytesRead;
-                        while ((bytesRead = inputStream.read(buffer)) != -1) {
-                            multipart.write(buffer, 0, bytesRead);
+                        try (FileInputStream inputStream = new FileInputStream(imageFile)) {
+                            byte[] buffer = new byte[4096];
+                            int bytesRead;
+                            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                                multipart.write(buffer, 0, bytesRead);
+                            }
                         }
-                        inputStream.close();
                         multipart.writeBytes(LINE_FEED.getBytes(StandardCharsets.UTF_8));
                     } else {
                         String temp = element.getValue() + LINE_FEED;
@@ -374,10 +375,9 @@ public class ApiClient {
 
             // Calculamos el tamaño total del contenido
             int contentLength = multipart.size();
-            httpConn.setRequestProperty("Content-Length", Integer.toString(contentLength));
-            log.debug("Content-Length: " + Integer.toString(contentLength));
+            httpConn.setRequestProperty(CONTENT_LENGTH, Integer.toString(contentLength));
+            log.debug("Content-Length: {}", Integer.toString(contentLength));
 
-            // log.info(LINE_FEED + byteArrayOutputStream.toString());
             try (OutputStream requestStream = httpConn.getOutputStream()) {
                 multipart.writeTo(requestStream);
             }
