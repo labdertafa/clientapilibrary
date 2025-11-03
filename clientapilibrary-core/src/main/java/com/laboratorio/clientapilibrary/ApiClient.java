@@ -17,13 +17,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
-import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -62,9 +60,19 @@ public class ApiClient {
     private static final String ERROR_LIBERANDO = "Error liberando los recursos: %s";
     
     private String cookiesFilePath;
+    private String proxyDNS;
+    private int proxyPort;
+    private String proxyCertificatePath;
 
     public ApiClient() {
         Brotli4jLoader.ensureAvailability();
+    }
+    
+    public ApiClient(String proxyDNS, int proxyPort, String proxyCertificatePath) {
+        Brotli4jLoader.ensureAvailability();
+        this.proxyDNS = proxyDNS;
+        this.proxyPort = proxyPort;
+        this.proxyCertificatePath = proxyCertificatePath;
     }
 
     public ApiClient(String cookiesFilePath) {
@@ -125,12 +133,9 @@ public class ApiClient {
         URL url = new URL(uri);
         // Se verifica que la llamada no sea para Gab
         if (uri.contains("gab.com")) {
-            ReaderConfig config = new ReaderConfig("config//apiclientconfig.properties");
-            String proxyDNS = config.getProperty("gab_proxy_dns");
-            int proxyPort = Integer.parseInt(config.getProperty("gab_proxy_port"));
             Proxy gabProxy = new Proxy(
                     Proxy.Type.HTTP,
-                    new InetSocketAddress(proxyDNS, proxyPort)
+                    new InetSocketAddress(this.proxyDNS, this.proxyPort)
             );
             httpConn = (HttpURLConnection) url.openConnection(gabProxy);
         } else {
@@ -153,9 +158,7 @@ public class ApiClient {
         
         if (uri.contains("gab.com")) {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
-            ReaderConfig config = new ReaderConfig("config//apiclientconfig.properties");
-            String certificatePath = config.getProperty("gab_proxy_certificate");
-            FileInputStream fis = new FileInputStream(certificatePath);
+            FileInputStream fis = new FileInputStream(this.proxyCertificatePath);
             Certificate ca = cf.generateCertificate(fis);
 
             KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -244,7 +247,7 @@ public class ApiClient {
             return new ApiResponse(httpConn.getHeaderFields(), httpConn.getHeaderFields().get("Set-Cookie"), responseStr, responseByte);
         } catch (ApiClientException e) {
             throw e;
-        } catch (Exception e) {
+        } catch (IOException | KeyManagementException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
             throw new ApiClientException("Error ejecutando la solicitud: " + fullUri, e);
         } finally {
             try {

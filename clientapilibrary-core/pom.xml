@@ -5,13 +5,13 @@
     <parent>
         <groupId>com.laboratorio</groupId>
         <artifactId>clientapilibrary</artifactId>
-        <version>2.1.8</version>
+        <version>2.2.0</version>
     </parent>
   
     <artifactId>clientapilibrary-core</artifactId>
     <packaging>jar</packaging>
     <name>Client-Api-Library-Core</name>
-    <version>2.1.8</version>
+    <version>2.2.0</version>
         
     <dependencies>
         <!-- JSoup: Biblioteca para parsear HTML -->
