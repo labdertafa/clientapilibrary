@@ -11,7 +11,6 @@ import com.laboratorio.clientapilibrary.model.ApiValueType;
 import com.laboratorio.clientapilibrary.utils.CookieManager;
 import com.laboratorio.clientapilibrary.utils.ImageMetadata;
 import com.laboratorio.clientapilibrary.utils.PostUtils;
-import com.laboratorio.clientapilibrary.utils.ReaderConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -29,6 +28,7 @@ import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
+import java.security.Provider;
 import java.security.Security;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
@@ -42,14 +42,13 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.conscrypt.Conscrypt;
 
 /**
  *
  * @author Rafael
  * @version 2.2
  * @created 06/09/2024
- * @updated 03/11/2025
+ * @updated 08/12/2025
  */
 public class ApiClient {
 
@@ -211,7 +210,10 @@ public class ApiClient {
         
         try {
             // 1. Registrar Conscrypt para emular un navegador
-            Security.insertProviderAt(Conscrypt.newProvider(), 1);
+            Provider jsse = Security.getProvider("SunJSSE");
+            if (jsse != null) {
+                Security.insertProviderAt(jsse, 1);
+            }
 
             // 2. Configurar SSLContext
             this.configurarSSLContext(fullUri);
