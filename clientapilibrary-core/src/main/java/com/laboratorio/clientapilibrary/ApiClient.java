@@ -46,9 +46,9 @@ import org.apache.logging.log4j.Logger;
 /**
  *
  * @author Rafael
- * @version 2.2
+ * @version 2.3
  * @created 06/09/2024
- * @updated 08/12/2025
+ * @updated 10/12/2025
  */
 public class ApiClient {
 
@@ -59,24 +59,32 @@ public class ApiClient {
     private static final String ERROR_LIBERANDO = "Error liberando los recursos: %s";
     
     private String cookiesFilePath;
-    private String proxyDNS;
+    private String proxyHost;
     private int proxyPort;
     private String proxyCertificatePath;
+    private boolean useProxy;
 
     public ApiClient() {
         Brotli4jLoader.ensureAvailability();
+        this.useProxy = false;
     }
     
-    public ApiClient(String proxyDNS, int proxyPort, String proxyCertificatePath) {
+    public ApiClient(String proxyHost, int proxyPort, String proxyCertificatePath) {
         Brotli4jLoader.ensureAvailability();
-        this.proxyDNS = proxyDNS;
-        this.proxyPort = proxyPort;
-        this.proxyCertificatePath = proxyCertificatePath;
+        this.useProxy = false;
+        if (proxyHost != null && !proxyHost.isBlank() && proxyPort > 0
+                && proxyCertificatePath != null && !proxyCertificatePath.isBlank()) {
+            this.proxyHost = proxyHost;
+            this.proxyPort = proxyPort;
+            this.proxyCertificatePath = proxyCertificatePath;
+            this.useProxy = true;
+        }
     }
 
     public ApiClient(String cookiesFilePath) {
         Brotli4jLoader.ensureAvailability();
         this.cookiesFilePath = cookiesFilePath;
+        this.useProxy = false;
     }
 
     // Procesar la respuesta HTTP
@@ -131,10 +139,10 @@ public class ApiClient {
         
         URL url = new URL(uri);
         // Se verifica que la llamada no sea para Gab
-        if (uri.contains("gab.com")) {
+        if (this.useProxy) {
             Proxy gabProxy = new Proxy(
                     Proxy.Type.HTTP,
-                    new InetSocketAddress(this.proxyDNS, this.proxyPort)
+                    new InetSocketAddress(this.proxyHost, this.proxyPort)
             );
             httpConn = (HttpURLConnection) url.openConnection(gabProxy);
         } else {
@@ -152,10 +160,10 @@ public class ApiClient {
         return httpConn;
     }
     
-    private void configurarSSLContext(String uri) throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, KeyManagementException {
+    private void configurarSSLContext() throws CertificateException, KeyStoreException, IOException, NoSuchAlgorithmException, KeyManagementException {
         TrustManager[] managers = null;
         
-        if (uri.contains("gab.com")) {
+        if (this.useProxy) {
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             FileInputStream fis = new FileInputStream(this.proxyCertificatePath);
             Certificate ca = cf.generateCertificate(fis);
@@ -216,7 +224,7 @@ public class ApiClient {
             }
 
             // 2. Configurar SSLContext
-            this.configurarSSLContext(fullUri);
+            this.configurarSSLContext();
         
             // 3. Iniciar la conexión
             httpConn = this.crearConexionHTTP(fullUri, request);
