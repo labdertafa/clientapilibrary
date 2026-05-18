@@ -32,9 +32,9 @@ import org.jsoup.nodes.Element;
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 1.1
  * @created 07/09/2024
- * @updated 02/05/2025
+ * @updated 18/05/2026
  */
 public class PostUtils {
     private static final Logger log = LogManager.getLogger(PostUtils.class);
@@ -256,6 +256,7 @@ public class PostUtils {
             Metadata metadata = ImageMetadataReader.readMetadata(file);
 
             ImageMetadata imageMetadata = new ImageMetadata();
+            imageMetadata.setFilename(file.getName());
 
             // Recorrer todos los directorios de metadata
             for (Directory directory : metadata.getDirectories()) {
@@ -273,8 +274,6 @@ public class PostUtils {
                     if (tag.getTagName().equalsIgnoreCase("File Size")) {
                         imageMetadata.setSize(extraerNumeros(tag.getDescription()));
                     }
-                    // Imprimir nombre de la etiqueta y su valor
-                    // System.out.println(tag.getTagName() + ": " + tag.getDescription());
                 }
             }
             

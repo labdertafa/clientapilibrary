@@ -8,12 +8,13 @@ import lombok.Setter;
 /**
  *
  * @author Rafael
- * @version 1.0
+ * @version 1.1
  * @created 07/09/2024
- * @updated 19/01/2025
+ * @updated 18/05/2026
  */
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
 public class ImageMetadata {
+    private String filename;
     private int width;
     private int height;
     private String mimeType;
@@ -21,6 +22,7 @@ public class ImageMetadata {
 
     @Override
     public String toString() {
-        return "ImageMetadata{" + "width=" + width + ", height=" + height + ", mimeType=" + mimeType + ", size=" + size + '}';
+        return "ImageMetadata{" + "filename=" + filename +", width="+ width + ", height=" +
+                height + ", mimeType=" + mimeType + ", size=" + size + '}';
     }
 }
